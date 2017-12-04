@@ -52,47 +52,44 @@
 		MAIN NAV
 		=============================================== -->
 		<div id="main-nav" class="navbar navbar-fixed-top">
-			<div class="container">
-			
-				<div class="navbar-header">
+				<div class="container">
 				
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
-						<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-					</button>
+					<div class="navbar-header">
 					
-					<!-- ======= LOGO ========-->
-					<a class="navbar-brand scrollto" href="#home">
-						<span class="logo-small"><img src="assets/logo-small.png" alt=""/></span>
-						<span class="to-top"><i class="fa fa-arrow-up"></i></span>
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-nav">
+							<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+						</button>
 						
-						Qubico
+						<!-- ======= LOGO ========-->
+						<a class="navbar-brand scrollto" href="#home">
+							<span class="logo-small"><img src="../assets/logo-small.png" alt=""/></span>
+							<span class="to-top"><i class="fa fa-arrow-up"></i></span>
+							
+							Qubico
+							
+							<!-- ==== Image Logo ==== -->
+							<!--<img class="site-logo" src="assets/logo.png" alt="logo" />-->
+						</a>
 						
-						<!-- ==== Image Logo ==== -->
-						<!--<img class="site-logo" src="assets/logo.png" alt="logo" />-->
-					</a>
+					</div>
 					
-				</div>
-
-				<div id="site-nav" class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="sr-only">
-							<a href="#home" class="scrollto">Home</a>
-						</li>
-						<li>
-							<a href="#about" class="scrollto">About</a>
-						</li>
-						<li>
-							<a href="#portfolio" class="scrollto">Portfolio</a>
-						</li>
-						<li>
-							<a href="#contact" class="scrollto">Contact</a>
-						</li>
-					</ul>
-				</div><!--End navbar-collapse -->
+					<div id="site-nav" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#about" class="scrollto">About</a>
+							</li>
+							<li>
+								<a href="#portfolio" class="scrollto">Portfolio</a>
+							</li>
+							<li>
+								<a href="#contact" class="scrollto">Contact</a>
+							</li>
+						</ul>
+					</div><!--End navbar-collapse -->
+					
+				</div><!--End container -->
 				
-			</div><!--End container -->
-			
-		</div><!--End main-nav -->
+			</div><!--End main-nav -->
 		
 		<!-- ==============================================
 		HEADER
@@ -101,8 +98,8 @@
 			
 			<div class="container text-center">
 			
-				<h1>Welcome to Qubico</h1>
-				<p>The best Bootstrap template for your portfolio</p>
+				<h1>Collin Wong</h1>
+				<p>Full-Stack Developer</p>
 				
 			</div>
 			
@@ -129,7 +126,7 @@
 							
 							<div class="media-body">
 								<h4>HTML5 &amp; CSS3</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
 							</div>
 						</div>
 						
@@ -144,8 +141,8 @@
 							</div>
 							
 							<div class="media-body">
-								<h4>Responsive Design</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								<h4>Javascript</h4>
+								<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
 							</div>
 						</div>
 						
@@ -160,8 +157,8 @@
 							</div>
 							
 							<div class="media-body">
-								<h4>Unique &amp; Modern</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								<h4>jQuery</h4>
+								<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
 							</div>
 						</div>
 						
@@ -180,8 +177,8 @@
 							</div>
 							
 							<div class="media-body">
-								<h4>Lovely Colors</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								<h4>PHP5</h4>
+								<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
 							</div>
 						</div>
 						
@@ -196,8 +193,8 @@
 							</div>
 							
 							<div class="media-body">
-								<h4>Great Options</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								<h4>MySQL</h4>
+								<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
 							</div>
 						</div>
 						
@@ -212,8 +209,8 @@
 							</div>
 							
 							<div class="media-body">
-								<h4>5-star Support</h4>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								<h4>Bootstrap</h4>
+								<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
 							</div>
 						</div>
 						
@@ -498,7 +495,7 @@
 				
 				<!--=== Contact Form ===-->
 
-					<form id="contact-form" class="col-sm-6 col-sm-offset-3" action="contact.php" method="post" novalidate>
+					<form id="contact-form" class="col-sm-6 col-sm-offset-3" action="./php_mailer/mail_handler.php" method="post" novalidate>
 						
 						<div class="form-group">
 						  <label class="control-label" for="contact-name">Name</label>
