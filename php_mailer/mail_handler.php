@@ -1,6 +1,6 @@
 <?php
 require_once('email_config.php');
-require('phpmailer/PHPMailer/PHPMailerAutoload.php');
+require('phpmailer/PHPMailer/PHPMailerAutoload.php');//installs it
 $message = [];
 $output = [
     'success'=>null,
