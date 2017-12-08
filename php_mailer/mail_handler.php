@@ -8,7 +8,6 @@ $output = [
 ];
 
 $message['name'] = filter_var($_POST['contactName'],FILTER_SANITIZE_STRING);
-
 if(empty($message['name'])){
     $output['success'] = false;
     $output['message'][] = 'missing name key';
@@ -77,5 +76,13 @@ $mail->Subject = 'Thank you for reaching out!';
 $mail->Body = 'I will get back to you as soon as possible';
 $mail->AltBody = 'I will get back to you as soon as possible';
 $mail->addAddress($message['email']);
+if(!$mail->send()) {
+    $output['success'] = false;
+    $output['messages'][] = $mail->ErrorInfo;
+} else {
+    $output['messages'][] = 'mail sent to self';
+    $output['success'] = true;
+}
+
 echo json_encode($output);
 ?>
