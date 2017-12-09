@@ -1,0 +1,12 @@
+#overwrite_line_height{
+    line-height: 80px;
+}
+.media-body{
+    padding-top:20px;
+}
+.media>.center_icons{
+    padding-right: 0px;
+}
+.devicon-php-plain{
+    font-size:40px;
+}

@@ -106,8 +106,7 @@ function Grab_data(){
             dataType: 'text',
             success: function(data){
                 var page = new DOMParser().parseFromString(data,'text/html');//grabs the table information from site
-                // console.log('test text: ',page);
-                var pokemonObj = {name: pokemon};//grabs the text in the table to pass on in an object
+                var pokemonObj = {Name: pokemon};//grabs the text in the table to pass on in an object
                 var pokedataRows = $(page).find('.vitals-table tr');
                 pokedataRows.each(function(){
                     var header = $(this).find('th').text();
@@ -123,46 +122,4 @@ function Grab_data(){
         return promise;
     }
 }
-// this.resolve_wiki = function(data,player){
-//     var markup = data.parse.text["*"];
-//     var i = $('<div></div>').html(markup);
-//     // i[0].children[0].children[1].innerText;
-//     // i.find('a').each(function(){ $(this).replaceWith($(this).html()); });
-//     // i.find('sup').remove();
-//     // i.find('.mw-ext-cite-error').remove();
-//     // $(player).html($(i).find('p'));
-//     $(player).html(i[0].children[0].children[1].innerText);
-// }
-// this.reject_wiki = function(data){
-//     console.log('error');
-// }
-// this.get_wiki = function(name,player){
-//     // var promise ={
-//     //     then:function(resolve,reject){
-//     //         this.resolve = resolve;
-//     //         this.reject = reject;
-//     //     }
-//     // }
-//     $.ajax({
-//         url: "https://en.wikipedia.org/w/api.php",
-//         data: {
-//             format: "json",
-//             action: "parse",
-//             page: name,
-//             prop:"text",
-//             section:0,
-//             origin:'*'
-//         },
-//         dataType: 'jsonp',
-//         success: function (data) {
-//             var markup = data.parse.text["*"];
-//             var i = $('<div></div>').html(markup);
-//             $(player).html(i[0].children[0].children[1].innerText);
-//         },
-//         error: function(data){
-//             // promise.reject(data)
-//             console.log('error')
-//         }
-//     });
-//     // return promise;
-// }
+
