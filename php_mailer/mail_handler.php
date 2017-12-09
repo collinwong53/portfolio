@@ -1,6 +1,6 @@
 <?php
 require_once('email_config.php');
-require('phpmailer/PHPMailer/PHPMailerAutoload.php');//installs it
+require('phpmailer/PHPMailer/PHPMailerAutoload.php');
 $message = [];
 $output = [
     'success'=>null,
@@ -69,18 +69,17 @@ if(!$mail->send()) {
 
 $mail->clearAddresses();
 $mail->clearReplyTos();
-$auto_reply = 'Thanks for reaching out';
-$mail->From = EMAIL_USER;
+$auto_reply = 'I will get back to you as soon as possible';
 $mail->FromName = 'Collin';
 $mail->Subject = 'Thank you for reaching out!';
-$mail->Body = 'I will get back to you as soon as possible';
-$mail->AltBody = 'I will get back to you as soon as possible';
+$mail->Body = $auto_reply;
+$mail->AltBody = $auto_reply;
 $mail->addAddress($message['email']);
 if(!$mail->send()) {
     $output['success'] = false;
     $output['messages'][] = $mail->ErrorInfo;
 } else {
-    $output['messages'][] = 'mail sent to self';
+    $output['messages'][] = 'auto reply sent';
     $output['success'] = true;
 }
 
