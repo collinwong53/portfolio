@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Revolution</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="grab_data.js"></script>
+    <script src="main.js"></script>
+    <script src="game_model.js"></script>
+    <script src="game_controller.js"></script>
+    <script src="player_model.js"></script>
+    <script src="player_controller.js"></script>
+    <script src="view.js"></script>
+    <script src="sound.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+</head>
+<body>
+<div id="game_container">
+    <div id="countDown">
+    </div>
+    <div class="player_box container" id="player_0"></div>
+    <div class="player_icon" id="player_0_icon">
+        <img id="player_0_icon_image" src="">
+    </div>
+    <div id="player_0_name" class="player_name container">
+    </div>
+    <div class="player_box container" id="player_1"></div>
+    <div class="player_icon" id="player_1_icon">
+        <img id="player_1_icon_image" src="">
+    </div>
+    <div id="player_1_name"  class = "player_name container">
+    </div>
+    <div class="player_stats container style_scrollbar force-overflow" id="player_0_stats">
+        <img src="images/International_Pokémon_logo.svg.png">
+    </div>
+    <div  class="player_key_display container" id="player_0_key_display">
+    </div>
+    <div class="player_stats container style_scrollbar force-overflow" id="player_1_stats">
+        <img src="images/International_Pokémon_logo.svg.png">
+    </div>
+    <div class="player_key_display container" id="player_1_key_display">
+    </div>
+    <div class="player_hpAndPower container" id="player_0_hpAndPower">
+        <div class="hp" id="player_0_hp">
+            <div class="hpAndPowerTextDiv">HP</div>
+            <div class="hpAndPowerBar progress">
+                <div class="progress-bar active" id="player_0_health_bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+
+                </div>
+            </div>
+            <div class="hpDetails" id="hp_0">
+
+            </div>
+        </div>
+        <div class="power" id="player_0_power">
+            <div class="hpAndPowerTextDiv" id="powerLabel0">Power</div>
+            <div class="hpAndPowerBar progress">
+                <div class="progress-bar active" id="player_0_power_bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+
+                </div>
+            </div>
+            <div class="powerDetails" id="power_0">
+
+            </div>
+        </div>
+    </div>
+    <div class="player_hpAndPower container" id="player_1_hpAndPower">
+        <div class="hp" id="player_1_hp">
+            <div class="hpAndPowerTextDiv">HP</div>
+                <div class="hpAndPowerBar progress">
+                    <div class="progress-bar active" id="player_1_health_bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+
+                    </div>
+                </div>
+            <div class="hpDetails" id="hp_1">
+
+            </div>
+        </div>
+        <div class="power">
+            <div class="hpAndPowerTextDiv" id="powerText">Power</div>
+                <div class="hpAndPowerBar progress">
+                    <div class="progress-bar active" id="player_1_power_bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" >
+
+                    </div>
+                </div>
+            <div class="powerDetails" id="power_1">
+
+            </div>
+        </div>
+    </div>
+    <button id="start_button" class="btn btn-default">Start</button>
+</div>
+
+<div class="modal fade" id="winner_modal" tabindex="-1" role="dialog" aria-labelledby="winning_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close_modal_butt" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="winning_modal">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe id= "video_display" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="pause_music">Toggle Music</button>
+                <button type="button" class="btn btn-default close_modal_butt" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="instructions" tabindex="-1" role="dialog" aria-labelledby="winning_modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Instructions</h1>
+            </div>
+            <div class="modal-body">
+                <br>
+                <ul>
+                    <li>Player one uses WASD</li>
+                    <li>Player two uses arrow keys</li>
+                    <li>Follow given moves to build up your power bar</li>
+                    <li>Fill up your power bar to attack your opponent</li>
+                    <li>Strong Pokemon require more moves to attack</li>
+                    <li>Bring your opponent's HP to zero to win!</li>
+                </ul>
+                <br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<p class ="attackText" id="attackText0"></p>
+<p class ="attackText" id="attackText1"></p>
+<div id="pokeBall"></div>
+</body>
+</html>
