@@ -8,23 +8,18 @@ body{
     background-repeat:no-repeat;
     background-size:cover;
     text-shadow: 4px 4px #000000;
+    color:white;
+    font-family: 'Bungee';
 }
 #header_container{
     height: 15vh;
     width: 100vw;
     text-align:center;
-    color:#e82525;
-    font-size:20px;
     display: flex;
-}
-#header_container a{
-    text-decoration:none;
-    color:#44d4f5;
-    font-size:1.5em;
-    margin-left:2%;
-    margin-right:2%;
-    position:relative;
-    bottom:15px;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 30px;
 }
 
 .center {
@@ -40,7 +35,7 @@ body{
     height: 85vh;
     width: 15vw;
     display: inline-block;
-    font-size:12px;
+    font-size:25px;
     position:relative;
     left:1%;
 }
@@ -82,7 +77,6 @@ body{
     position:relative;
     top:20vh;
     cursor: pointer;
-    color: red;
     font-size:25px;
     font-weight:bold;
     border-radius: 15px;
@@ -94,20 +88,14 @@ body{
     transform: translateY(10px);
 }
 .games_played{
-    font-size:3em;
-    color:#e82525;
     position:relative;
     top:5%;
 }
 .accuracy{
-    font-size:3em;
-    color:#e82525;
     top:15vh;
     position:relative;
 }
 .attempts{
-    font-size:3em;
-    color:#e82525;
     position:relative;
     top:9vh;
 }
@@ -133,7 +121,6 @@ body{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    background-color:white;
     height:50vh;
     width:50vw;
     z-index:2;
