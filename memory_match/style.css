@@ -70,6 +70,9 @@ body{
     box-sizing:border-box;
     background-color:#44d4f5;
 }
+.reset:focus{
+    outline:none;
+}
 .reset{
     width:100px;
     height:100px;
