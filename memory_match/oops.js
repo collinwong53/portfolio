@@ -209,11 +209,11 @@ function Memory_match(images,sounds){
             else{
                 if(old_accuracy>self.accuracy){
                     old_accuracy--;
-                    $('.accuracy').find(".value").text("%"+old_accuracy);
+                    $('.accuracy').find(".value").text(old_accuracy+"%");
                 }
                 else{
                     old_accuracy++;
-                    $('.accuracy').find(".value").text("%"+old_accuracy);
+                    $('.accuracy').find(".value").text(old_accuracy+"%");
                 }
             }
         }//end else
