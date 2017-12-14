@@ -58,6 +58,9 @@ body{
     transform-style: preserve-3d;
     border-radius:10px;
 }
+.flipping{
+    transition: 1s;
+}
 .front, .back{
     width:100%;
     height:100%;
