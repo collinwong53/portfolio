@@ -69,21 +69,19 @@ function Memory_match(images,sounds){
         $('.accuracy').find(".value").text(0);
     }
     this.card_clicked = function(){
-        console.log("this was clicked");
         var card = $(this);
-        var face = card.find('.front').is('#revealed');
-       if(self.lock === true){
+        var face = card.find('.front').is('#hidden');
+       if(self.lock || face){
             return;
        }//end lock check;
-        if(self.first_card_clicked === null && self.lock === false && face === false){
-           console.log("first card");
-            card.toggleClass('flipped');
+        if(self.first_card_clicked === null){
+            card.addClass('flipped');
             self.first_card_clicked = card;
         }//end first card check
-        else if(self.lock === false && self.first_card_clicked.attr('id') !== card.attr('id') && face ===false){
+        else if(self.first_card_clicked.attr('id') !== card.attr('id')){
             console.log("second card");
             self.attempts++;
-            card.toggleClass('flipped');
+            card.addClass('flipped');
             self.second_card_clicked = card;
             if(self.second_card_clicked.find('img').attr('src') === self.first_card_clicked.find('img').attr('src')){
                 var image = self.second_card_clicked.find('img').attr('src');
@@ -130,33 +128,12 @@ function Memory_match(images,sounds){
     this.apply_click_handlers = function(){
         $('.card').click(self.card_clicked);
         $('.card').hover(function(){
-            if(!$(this).find('.front').is('#revealed')){
+            if(!$(this).find('.front').is('#hidden')){
                 $(this).toggleClass("glow");
             }
         })
 
     }//end add click handlers
-    this.reset_cards = function(){
-        self.display_stats();
-        if(self.pair === false) {
-            self.first_card_clicked.toggleClass('flipped');
-            self.second_card_clicked.toggleClass('flipped');
-        }// if no pair
-        else{
-            self.first_card_clicked.find('.front').attr('id','revealed');
-            self.second_card_clicked.find('.front').attr('id','revealed');
-            if(self.second_card_clicked.hasClass("glow")){
-                self.second_card_clicked.toggleClass("glow");
-            }//disable glow
-            if(self.first_card_clicked.hasClass('glow')){
-                self.first_card_clicked.toggleClass('glow');
-            }//disable glow
-        }//add display none;
-        self.first_card_clicked = null;
-        self.second_card_clicked = null;
-        self.pair = false;
-        self.lock = false;
-    }//end reset cards
     this.display_stats = function(){
         $('.games_played').find('.value').text(self.games_played);
         $('.attempts').find('.value').text(self.attempts+'/18');
@@ -165,7 +142,7 @@ function Memory_match(images,sounds){
         this.create_board(images);
         this.apply_click_handlers();
         $('.reset').click(this.reset_button);
-        $('.card').toggleClass('flipped');
+        $('.card').addClass('flipped');
         self.lock = true;
         $('#modal_body').css('background-image','url(images/clapping_zerg.gif)');
         setTimeout(this.start_match,2000);
@@ -198,6 +175,29 @@ function Memory_match(images,sounds){
         $('#modal_body').css('display','none');
         self.start_app();
     }//end reset button
+    this.reset_cards = function(){
+        self.display_stats();
+        let card_1 = self.first_card_clicked;
+        let card_2 = self.second_card_clicked;
+        if(!self.pair) {
+            card_1.removeClass('flipped');
+            card_2.removeClass('flipped');
+        }// if no pair
+        else{
+            card_1.find('.front').attr('id','hidden');
+            card_2.find('.front').attr('id','hidden');
+            if(card_1.hasClass('glow')){
+                card_1.removeClass('glow');
+            }//disable glow
+            if(card_2.hasClass("glow")){
+                card_2.removeClass("glow");
+            }//disable glow
+        }//add display none;
+        self.lock = false;
+        self.first_card_clicked = null;
+        self.second_card_clicked = null;
+        self.pair = false;
+    }//end reset cards
     this.display_accuracy = function(){
         var old_accuracy = self.accuracy;
         self.accuracy = (Math.floor(self.matches/self.attempts*100));
