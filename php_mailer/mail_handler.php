@@ -48,7 +48,6 @@ $options = array(
         'allow_self_signed' => true
     )
 );
-
 $mail->smtpConnect($options);
 $mail->From = $message['email'];
 $mail->FromName = $message['name'];
@@ -82,6 +81,5 @@ if(!$mail->send()) {
     $output['messages'][] = 'auto reply sent';
     $output['success'] = true;
 }
-
 echo json_encode($output);
 ?>

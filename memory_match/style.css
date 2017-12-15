@@ -250,7 +250,7 @@ body{
   .game_area{
     display: inline-flex;
     height: 80vh;
-    width: 83vw;
+    width: 76vw;
     flex-flow: row wrap;
     vertical-align: top;
   }
@@ -265,8 +265,8 @@ body{
     font-size:1.2em;
   }
   .card{
-    width:13vw;
-    height:25vh;
+    width:11vw;
+    height:23vh;
     margin:auto;
   }
   .reset{
@@ -285,7 +285,7 @@ body{
   }
 }
 @media screen and (min-width:1300px) and (orientation: landscape){
-   #stats_container{
+  #stats_container{
     font-size:2.2em;
   }
   #header_container{
@@ -293,5 +293,10 @@ body{
   }
   .reset{
     top:25vh;
+  }
+}
+@media screen and (min-width:1300px) and (max-height:1000px) and (orientation: landscape){
+  .reset{
+    top:15vh;
   }
 }
