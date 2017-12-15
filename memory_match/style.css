@@ -220,6 +220,10 @@ body{
   }
 }
 @media screen and (min-width:600px) and (orientation: landscape){
+  #modal_body{
+    height:65vh;
+    width:65vw;
+}
   #header_container{
     font-size:1em;
   }
