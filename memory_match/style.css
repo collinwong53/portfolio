@@ -237,7 +237,7 @@ body{
     margin:auto;
   }
   .reset{
-    top:16vh;
+    top:12vh;
     position:relative;
     height:18vh;
     width:13vw;
@@ -251,9 +251,9 @@ body{
     vertical-align: top;
   }
   .attempts,.games_played, .accuracy{
-        top:5%;
-        margin-right:3%;
-        margin-bottom:15%
+      top:5%;
+      margin-right:3%;
+      margin-bottom:15%
     }
 }
 @media screen and (min-width:700px) and (orientation: landscape){
@@ -266,7 +266,7 @@ body{
     margin:auto;
   }
   .reset{
-    top:12vh;
+    top:10vh;
   }
 }
 @media screen and (min-width:1000px) and (orientation: landscape){
@@ -277,7 +277,7 @@ body{
     font-size:2em;
   }
   .reset{
-    top:29vh;
+    top:25vh;
   }
 }
 @media screen and (min-width:1300px) and (orientation: landscape){
@@ -288,6 +288,6 @@ body{
     font-size:2.5em;
   }
   .reset{
-    top:29vh;
+    top:25vh;
   }
 }
