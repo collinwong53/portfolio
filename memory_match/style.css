@@ -45,7 +45,7 @@ body{
 .game_area{
     display: inline-flex;
     height: 83vh;
-    width: 82vw;
+    width: 83vw;
     flex-flow: row wrap;
     vertical-align: top;
     font-size: 30px;
@@ -139,24 +139,17 @@ body{
     display: none;
 }
 
-@media screen and (orientation:landscape){
-    #stats_container{
-        width:16vw;
-        font-size:20px;
-        top:5vh;
+@media screen and (max-width:1100px){
+    body{
+        font-size:14px;   
     }
-     #header_container{
-        height:16vh;
-        font-size:20px;
-    }
-}
-@media screen and (max-width:1100px) and (orientation:portrait){
     #stats_container{
         height:15%;
         width:100vw;
         display:flex;
-        font-size:36px;
+        font-size:1.4em;
         justify-content:center;
+        text-align:center;
     }
     .attempts,.games_played, .accuracy, .reset{
         top:25%;
@@ -164,16 +157,61 @@ body{
     }
     #header_container{
         height:15vh;
+        font-size:1.6em;
     }
     .game_area{
-        width:100%;
+        width:98%;
         height:65%;
         justify-content:center;
-        margin-left:1%;
+        margin-left:2%;
     }
     .card{
         width:14vw;
-        height:20vh;
-        margin:0px 1%;
+        height:16vh;
+        margin:0 1%;
+    }
+    .reset{
+        width:15%;
+        height:50%;
+        font-size:15px;
+        margin-left:3%;
+    }
+}
+
+@media screen and (max-width:600px){
+    body{
+        font-size:14px;   
+    }
+    #stats_container{
+        height:15%;
+        width:100vw;
+        display:flex;
+        justify-content:center;
+        text-align:center;
+    }
+    .attempts,.games_played, .accuracy, .reset{
+        top:25%;
+        margin-right:3%;
+    }
+    #header_container{
+        height:15vh;
+        font-size:1.2em;
+    }
+    .game_area{
+        width:98%;
+        height:65%;
+        justify-content:center;
+        margin-left:2%;
+    }
+    .card{
+        width:14vw;
+        height:16vh;
+        margin:0 1%;
+    }
+    .reset{
+        width:15%;
+        height:50%;
+        font-size:15px;
+        margin-left:3%;
     }
 }
