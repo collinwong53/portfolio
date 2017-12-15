@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-size: 0;
+    font-size: 15px;
 }
 body{
     background-image: url("images/carbot_background.jpg");
@@ -18,10 +18,10 @@ body{
     width: 100vw;
     text-align: center;
     display: flex;
-	font-size: 30px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 30px;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 400;
+    /* line-height: 30px; */
 }
 
 .center {
@@ -35,9 +35,9 @@ body{
 }
 #stats_container {
     height: 85vh;
-    width: 15vw;
+    width: 17vw;
     display: inline-block;
-    font-size: 25px;
+    font-size: 1.4em;
     position: relative;
     left: 1%;
 }
@@ -45,10 +45,9 @@ body{
 .game_area{
     display: inline-flex;
     height: 83vh;
-    width: 83vw;
+    width: 80vw;
     flex-flow: row wrap;
     vertical-align: top;
-    font-size: 30px;
 }
 .card{
     width: 12vw;
@@ -80,7 +79,7 @@ body{
     height: 100px;
     background-color: #0aa9ea;
     position: relative;
-    top: 20vh;
+    top: 35vh;
     cursor: pointer;
     font-size: 25px;
     font-weight: bold;
@@ -94,15 +93,15 @@ body{
 }
 .games_played{
     position: relative;
-    top: 5%;
+    top: 13vh;
 }
 .accuracy{
-    top: 15vh;
+    top: 23vh;
     position: relative;
 }
 .attempts{
     position: relative;
-    top: 9vh;
+    top: 18vh;
 }
 .front{
     transform: rotateY(180deg);
@@ -139,7 +138,7 @@ body{
     display: none;
 }
 
-@media screen and (max-width:1100px){
+@media screen and (max-width:1100px) and (orientation: portrait){
     body{
         font-size:14px;   
     }
@@ -147,71 +146,45 @@ body{
         height:15%;
         width:100vw;
         display:flex;
-        font-size:1.4em;
+        font-size:2.8em;
         justify-content:center;
         text-align:center;
     }
     .attempts,.games_played, .accuracy, .reset{
-        top:25%;
+        top:36%;
         margin-right:3%;
     }
     #header_container{
         height:15vh;
-        font-size:1.6em;
+        font-size:3em;
+        line-height:normal;
     }
     .game_area{
         width:98%;
-        height:65%;
+        height:50%;
         justify-content:center;
         margin-left:2%;
     }
     .card{
         width:14vw;
-        height:16vh;
+        height:13vh;
         margin:0 1%;
     }
     .reset{
-        width:15%;
-        height:50%;
-        font-size:15px;
-        margin-left:3%;
+        position:absolute;
+        top:450%;
+        height:75%;
+        width:60%;
+        font-size:2em;
     }
 }
-
-@media screen and (max-width:600px){
-    body{
-        font-size:14px;   
+@media screen and (max-width:1000px) and (orientation: portrait){
+    #header_container{
+        font-size:3.7em;
     }
     #stats_container{
-        height:15%;
-        width:100vw;
-        display:flex;
-        justify-content:center;
-        text-align:center;
+        font-size:3.1em;
     }
-    .attempts,.games_played, .accuracy, .reset{
-        top:25%;
-        margin-right:3%;
-    }
-    #header_container{
-        height:15vh;
-        font-size:1.2em;
-    }
-    .game_area{
-        width:98%;
-        height:65%;
-        justify-content:center;
-        margin-left:2%;
-    }
-    .card{
-        width:14vw;
-        height:16vh;
-        margin:0 1%;
-    }
-    .reset{
-        width:15%;
-        height:50%;
-        font-size:15px;
-        margin-left:3%;
-    }
+}
+@media screen and (orientation:landscape){
 }
