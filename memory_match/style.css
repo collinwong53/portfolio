@@ -15,8 +15,7 @@ body{
     font-size:14px;
 }
 #header_container{
-    text-align: center;
-    display: flex;
+    display: block;
     font-style: normal;
     font-weight: 400;
 }
