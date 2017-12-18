@@ -1,7 +1,19 @@
+/********************************
+* universal 
+*********************************/
 html, body {
     margin: 0;
     padding: 0;
-    font-size: 15px;
+    font-size: 13px;
+}
+#header_container{
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    font-style: normal;
+    font-weight: 400;
+    height:15%;
+    width:100%;
 }
 body{
     background-image: url("images/carbot_background.jpg");
@@ -12,102 +24,10 @@ body{
     font-family: 'Bungee';
     width:100vw;
     height:100vh;
-    font-size:14px;
-}
-#header_container{
-    display: block;
-    font-style: normal;
-    font-weight: 400;
-    text-align:center;
-}
-
-.center {
-    margin: auto;
-}
-
-.front img, .back img{
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-}
-
-.reset {
-    -webkit-border-radius: 18;
-    -moz-border-radius: 18;
-    border-radius: 18px;
-    text-shadow: 2px 3px 6px #666666;
-    border:none;
-    font-family: Arial;
-    color: white;
-    background: #35bcfa;
-    text-decoration: none;
-  }
-  
-.reset:hover {
-    cursor: pointer;
-    background: #3cb0fd;
-    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    text-decoration: none;
-}
-
-#stats_container {
-    display: inline-block;
-    position: relative;
-}
-
-.game_area{
-    display: inline-flex;
-    height: 83vh;
-    width: 80vw;
-    flex-flow: row wrap;
-    vertical-align: top;
-}
-.card{
-    position: relative;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    border-radius: 10px;
-    transition: 1s;
-}
-.front, .back{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 10px;
-    backface-visibility: hidden;
-}
-.front{
-    border: 2px solid gold;
-    box-sizing: border-box;
-    background-color: #44d4f5;
-}
-.reset:focus{
-    outline: none;
-}
-
-.reset:active {
-    background-color: blue;
-    box-shadow: 0 5px #151414;
-    transform: translateY(10px);
-}
-.games_played{
-    position: relative;
-}
-.accuracy{
-    position: relative;
-}
-.attempts{
-    position: relative;
-}
-.front{
-    transform: rotateY(180deg);
-}
-.flipped{
-    transform: rotateY(180deg);
+    font-size: 1em;
+    min-width:340px;
+    min-height:300px;
+    display:flex;
 }
 #modal_shadow{
     position: fixed;
@@ -129,197 +49,204 @@ body{
     display: none;
     background-size: cover;
 }
+/******************************
+*cards
+*******************************/
+.card{
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    border-radius: 8px;
+    transition: 1s;
+    width:15%;
+    height:25%;
+    margin:auto;
+}
+.front img, .back img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+.front, .back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+.front{
+    border: 2px solid gold;
+    box-sizing: border-box;
+    background-color: #44d4f5;
+    transform: rotateY(180deg);
+}
+.flipped{
+    transform: rotateY(180deg);
+}
 .glow{
     box-shadow: 0px 0px 30px yellow;
 }
 #hidden{
     display: none;
 }
-@media screen and (min-width:0px) {
-     #modal_body{
-       height: 30vh;
-       width: 90vw;
-     }
-     #stats_container{
-        height:17%;
-        width:100vw;
+.reset:focus{
+    outline: none;
+}
+
+.reset:active {
+    background-color: blue;
+    box-shadow: 0 5px #151414;
+    transform: translateY(10px);
+}
+.reset {
+    -webkit-border-radius: 18;
+    -moz-border-radius: 18;
+    border-radius: 18px;
+    text-shadow: 2px 3px 6px #666666;
+    border:none;
+    font-family: Arial;
+    color: white;
+    background: #35bcfa;
+    text-decoration: none;
+  }
+
+.reset:hover {
+    cursor: pointer;
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+
+/***************************
+*responsive smallest portrait 
+****************************/
+@media screen and (orientation:portrait){
+    body{
+        flex-direction:column;
+        align-items:center;
+    }
+ 
+    #stats_container {
+        display: flex;
+        position: relative;
+        justify-content:space-evenly;
+        width:100%;
+    }
+    #stats_container div{
         display:flex;
-        font-size:2.8em;
-        justify-content:center;
+        flex-direction:column;
         text-align:center;
     }
-    #header_container{
-        height:15vh;
-        font-size:1.5em;
-    }
-    .attempts,.games_played, .accuracy{
-        top:50%;
-        margin-right:3%;
-    }
-    #stats_container{
-        font-size:1em;
-    }
-    .reset{
-        position:absolute;
-        top:400%;
-        height:75%;
-        width:60%;
-        font-size:2em;
-    }
-    .card{
-        width:14vw;
-        height:13vh;
-        margin:0 1%;
+    #reset_side{
+        display:none;
     }
     .game_area{
-        width:98%;
-        height:50%;
+        display:flex;
+        height: 55%;
+        width: 90%;
+        flex-flow: row wrap;
+        justify-content:space-between;
+        align-items:center;
+        vertical-align: top;
+    }
+    #bottom_container{
+        height:20%;
+        width:80%;
+        display:flex;
         justify-content:center;
-        margin-left:2%;
+        align-items:center;
+
+    }
+    #reset_bottom{
+        height:40%;
+        width:60%; 
+    }
+
+}
+@media screen and (min-width:700px) and (orientation:portrait){
+    #header_container{
+        font-size:2em;
+    }
+    #stats_container{
+        font-size:2em;
+    }
+    #reset_bottom{
+        font-size:2em;
     }
 }
-@media screen and (min-width:374px) and (min-height:800px) and (orientation: portrait){
-   #header_container{
-      font-size:1.5em;
-  }
-  #stats_container{
-      font-size:1.2em;
-      bottom:3%
-  }
-  .reset{
-    top:415%;
-  }
-}
-@media screen and (min-width:401px) and (orientation: portrait){
-  #header_container{
-      font-size:1.7em;
-  }
-  #stats_container{
-      font-size:1.3em;
-  }
-}
-@media screen and (min-width:700px) and (orientation: portrait){
-   #modal_body{
-     height: 40vh;
-     width: 90vw;
-   }
-  #header_container{
-    font-size:2em
-  }
-  #stats_container{
-      font-size:2.3em;
-      bottom:5%;
-  }
-  .reset{
-    top:425%;
-  }
-  .card{
-    width:14vw;
-    height:15vh;
-    bottom:5%;
-  }
-}
-@media screen and (min-width:1000px) and (orientation: portrait){
-  #header_container{
-    font-size:2.7em;
-  }
-  #stats_container{
-    bottom:7%;
-    font-size:3em;
-  }
-  .card{
-    bottom:10%;
-    height:16vh;
-    margin:1%;
-  }
-  .reset{
-    top:450%;
-  }
-}
-@media screen and (min-width:600px) and (orientation: landscape){
-  #modal_body{
-    height:65vh;
-    width:65vw;
-}
-  #header_container{
-    font-size:1em;
-  }
-  #stats_container{
-    font-size:1em;
-    display:inline-flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:space-around;
-    position: relative;
-    left: 2%;
-    height: 80vh;
-    width: 15vw;
-  }
-  .card{
-    width:12vw;
-    height:21vh;
-    margin:auto;
-    left:3%;
-  }
-  .reset{
-    position:relative;
-    height:13vh;
-    width:14vw;
-    font-size:1.2em;
-    top:0px;
-  }
-  .game_area{
-    display: inline-flex;
-    height: 80vh;
-    width: 76vw;
-    flex-flow: row wrap;
-    vertical-align: top;
-  }
-  .attempts,.games_played, .accuracy{
-      top:5%;
-      margin-right:3%;
-      margin-bottom:15%
+@media screen and (min-width:1000px) and (orientation:portrait){
+    #header_container{
+        font-size:2.8em;
+    }
+    #stats_container{
+        font-size:3em;
+    }
+    #reset_bottom{
+        font-size:3em;
     }
 }
-@media screen and (min-width:700px) and (orientation: landscape){
-  #stats_container{
-    font-size:1.2em;
-  }
-  .card{
-    width:11vw;
-    height:22vh;
-    margin:auto;
-  }
-  #header_container{
-    font-size:1.1em;
-  }
+@media screen and (orientation:landscape){
+    body{
+        display:flex;
+        flex-flow:row wrap;
+        justify-content:space-evenly;
+        min-width:550px;
+    }
+    #header_container{
+        font-size:1.3em;
+    }
+    #stats_container{
+        display:flex;
+        flex-direction:column;
+        width:20%;
+        height:70%;
+        align-items:center;
+        justify-content:space-around;        
+    }
+    #stats_container div{
+        display:flex;
+        align-items:center;
+        flex-direction:column;
+    }
+    .game_area{
+        display:flex;
+        height: 72%;
+        width: 70%;
+        flex-flow: row wrap;
+        justify-content:space-around;
+        align-items:center;
+        vertical-align: top;
+    }
+    #reset_bottom{
+        display:none;
+    }
+    .card{
+        height:30%;
+    }
+    #reset_side{
+        height:15%;
+        width:80%;
+    }
 }
-@media screen and (min-width:701px) and (min-height:800px){
-  #header_container{
-    font-size:2em;
-  }
-}
-@media screen and (min-width:800px) and (orientation: landscape){
-  #stats_container{
-    font-size:1.6em;
-  }
-  .reset{
-    font-size:.75em;
-  }
-}
-@media screen and (min-width:1000px) and (orientation: landscape){
-   #stats_container{
-    font-size:1.6em;
-  }
-  #header_container{
-    font-size:2em;
-  }
-}
-@media screen and (min-width:1100px) and (orientation: landscape){
-  #stats_container{
-    font-size:2.2em;
-  }
-  #header_container{
-    font-size:2.5em;
-  }
+@media screen and (min-width:1000px) and (orientation:landscape){
+    #header_container{
+        font-size:2.5em;
+    }
+    #stats_container{
+        font-size:1.8em;
+        height:80%;
+    }
+    #reset_side{
+        font-size:1.2em;
+    }
+    .card{
+        height:25%;
+    }
+    .game_area{
+        height:82%;
+    }
 }
