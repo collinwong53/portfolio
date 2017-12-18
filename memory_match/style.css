@@ -25,8 +25,8 @@ body{
     width:100vw;
     height:100vh;
     font-size: 1em;
-    min-width:340px;
-    min-height:300px;
+    min-width:200px;
+    min-height:200px;
     display:flex;
 }
 #modal_shadow{
@@ -71,7 +71,7 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
-    border-radius: 10px;
+    border-radius: inherit;
     backface-visibility: hidden;
 }
 .front{
@@ -165,7 +165,23 @@ body{
         height:40%;
         width:60%; 
     }
-
+}
+@media screen and (max-width:300px) and (orientation:portrait){
+    body{
+        text-shadow: 2px 2px #000000;
+    }
+    .card{
+        border-radius:4px;
+    }
+    #reset_bottom{
+        height:50%;
+    }
+    #header_container{
+        font-size:.6em;
+    }
+    #stats_container{
+        font-size:.7em;
+    }
 }
 @media screen and (min-width:700px) and (orientation:portrait){
     #header_container{
@@ -189,12 +205,15 @@ body{
         font-size:3em;
     }
 }
+/*******************
+*landscape
+*******************/
 @media screen and (orientation:landscape){
     body{
         display:flex;
         flex-flow:row wrap;
         justify-content:space-evenly;
-        min-width:550px;
+        min-width:250px;
     }
     #header_container{
         font-size:1.3em;
@@ -214,8 +233,8 @@ body{
     }
     .game_area{
         display:flex;
-        height: 72%;
-        width: 70%;
+        height:72%;
+        width:70%;
         flex-flow: row wrap;
         justify-content:space-around;
         align-items:center;
@@ -225,11 +244,53 @@ body{
         display:none;
     }
     .card{
-        height:30%;
+        height:25%;
     }
     #reset_side{
         height:15%;
         width:80%;
+    }
+}
+@media screen and (max-width:400px) and (orientation:landscape){
+    body{
+        text-shadow: 2px 2px #000000;
+    }
+    .card{
+        border-radius:4px;
+    }
+    #reset_side{
+        height:18%;
+        font-size:1.5em;
+    }
+    #header_container{
+        font-size:.7em;
+    }
+    #stats_container{
+        font-size:.4em;
+    }
+}
+@media screen and (min-width:401px) and (orientation:landscape){
+    body{
+        min-height:300px;
+    }
+}
+@media screen and (min-width:401px) and (max-width:550px) and (orientation:landscape){
+    body{
+        text-shadow: 2px 2px #000000;
+    }
+    .card{
+        border-radius:6px;
+        height:28%;
+    }
+    #reset_side{
+        height:18%;
+        font-size:1.2em;
+    }
+    #header_container{
+        font-size:.7em;
+    }
+    #stats_container{
+        font-size:.7em;
     }
 }
 @media screen and (min-width:1000px) and (orientation:landscape){
