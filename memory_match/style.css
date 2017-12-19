@@ -48,6 +48,8 @@ body{
     z-index: 2;
     display: none;
     background-size: cover;
+    /* width: 90vw; */
+    /* height: 25vh; */
 }
 /******************************
 *cards
@@ -165,6 +167,10 @@ body{
         height:40%;
         width:60%; 
     }
+    #modal_body{
+        width:50vw;
+        height:25vh;
+    }
 }
 @media screen and (max-width:280px) and (orientation:portrait){
     body{
@@ -196,6 +202,10 @@ body{
     #reset_bottom{
         font-size:1.5em;
     }
+    #modal_body{
+        width:80vw;
+        height:25vh;
+    }
 }
 @media screen and (min-width:328px) and (orientation:portrait){
    #reset_bottom{
@@ -218,6 +228,10 @@ body{
     }
     #reset_bottom{
         font-size:2em;
+    }
+    #modal_body{
+        width:80vw;
+        height:40vh;
     }
 }
 @media screen and (min-width:1000px) and (orientation:portrait){
@@ -275,6 +289,10 @@ body{
     #reset_side{
         height:15%;
         width:80%;
+    }
+    #modal_body{
+        width:60vw;
+        height:60vh;
     }
 }
 @media screen and (max-width:400px) and (orientation:landscape){
