@@ -73,6 +73,7 @@ body{
     position: absolute;
     border-radius: inherit;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 .front{
     border: 2px solid gold;
