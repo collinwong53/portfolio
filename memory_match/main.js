@@ -55,12 +55,18 @@ function Memory_match(images,sounds){
     this.create_board =function(image_array){
         var images = image_array.concat(image_array);
         var random_images = this.random_sort(images);
+        $('<div>').addClass('card_row').attr('id','row1').appendTo('.game_area');
+        $('<div>').addClass('card_row').attr('id','row2').appendTo('.game_area');
+        $('<div>').addClass('card_row').attr('id','row3').appendTo('.game_area');
         for(var i = 0; i < random_images.length;i++){
             var image = random_images[i];
             if(i<6){
-                $('<div>').addClass('card').attr('id', 'card' + i).appendTo('.game_area');
+                $('<div>').addClass('card').attr('id', 'card' + i).appendTo('#row1');
+            }else if(i<12){
+                $('<div>').addClass('card').attr('id', 'card' + i).appendTo('#row2');
+            }else{
+                $('<div>').addClass('card').attr('id', 'card' + i).appendTo('#row3');
             }
-            
             $('<div>').addClass('front').prepend('<img src='+"'"+image+"'"+'/>').appendTo('#card' + i);
             $('<div>').addClass('back').prepend('<img src="images/card_pack.png"/>').appendTo('#card' + i);
         }//end for loop
