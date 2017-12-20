@@ -71,6 +71,7 @@ body{
     border-radius: inherit;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 .front{
     border: 2px solid gold;
@@ -161,6 +162,10 @@ body{
     #reset_bottom{
         width:60%; 
     }
+    #modal_body{
+        width:50vw;
+        height:25vh;
+    }
 }
 @media screen and (max-width:280px) and (orientation:portrait){
     body{
@@ -192,6 +197,15 @@ body{
     #reset_bottom{
         font-size:1.5em;
     }
+    #modal_body{
+        width:80vw;
+        height:25vh;
+    }
+}
+@media screen and (min-height:600px) and (orientation:portrait){
+    body{
+        min-width:350px;
+    }
 }
 @media screen and (min-width:328px) and (orientation:portrait){
    #reset_bottom{
@@ -214,6 +228,10 @@ body{
     }
     #reset_bottom{
         font-size:2em;
+    }
+    #modal_body{
+        width:80vw;
+        height:40vh;
     }
 }
 @media screen and (min-width:1000px) and (orientation:portrait){
@@ -271,6 +289,10 @@ body{
     #reset_side{
         height:15%;
         width:80%;
+    }
+    #modal_body{
+        width:60vw;
+        height:60vh;
     }
 }
 @media screen and (max-width:400px) and (orientation:landscape){
