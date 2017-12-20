@@ -206,6 +206,11 @@ body{
         height:25vh;
     }
 }
+@media screen and (min-height:600px) and (orientation:portrait){
+    body{
+        min-width:350px;
+    }
+}
 @media screen and (min-width:328px) and (orientation:portrait){
    #reset_bottom{
         height:50%;
