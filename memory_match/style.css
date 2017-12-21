@@ -94,14 +94,14 @@ body{
     -webkit-backface-visibility: hidden;
 }
 .front{
-    border: 2px solid gold;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 .front img{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     max-height:100%;
+    border: 2px solid gold;
 }
 .flipped{
     -webkit-transform: rotateY(180deg);
@@ -275,7 +275,11 @@ body{
         font-size:1.4em;
     }
     #stats_container{
-        font-size:1.5em;
+        font-size:1.3em;
+        height:15%;
+    }
+    body{
+        min-height:550px;
     }
 }
 @media screen and (min-width:650px) and (orientation:portrait){

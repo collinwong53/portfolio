@@ -163,6 +163,7 @@ function Memory_match(images,sounds){
     }//end start app
     this.start_match = function(){
         $('.card').removeClass('flipped');
+        change_card_height();
     }
     this.lock_delay = function(){
         self.lock = false;
