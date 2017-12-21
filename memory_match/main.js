@@ -1,31 +1,29 @@
 $(document).ready(initialize)
 var carBot =null;
-$( window ).resize(function() {
-    let images_height = $('.back img').css('height');
-    $( ".card" ).css("height",images_height);
-});
+var view = null;
+$(window).resize(change_card_height());
 function initialize(){
     var image_array=[
         'images/banelings.jpg',
-        'images/cuterbaneling.jpg',
+        'images/cuter_baneling.jpg',
         'images/illidan.jpg',
-        'images/infestor.png',
+        'images/infestor.jpg',
         'images/marine.jpg',
         'images/sky_zerg.jpg',
         'images/zeratul.jpg',
-        'images/Zergling.jpg',
-        'images/Ultralisk.png',
+        'images/zergling.jpg',
+        'images/ultralisk.jpg',
     ];
     var sound_object={
         'images/zeratul.jpg': new Audio("sounds/zeratul_goodjob.mp3"),
         'images/banelings.jpg': new Audio("sounds/baneling_roll.mp3"),
         'images/illidan.jpg': new Audio("sounds/not_prepared.mp3"),
-        'images/cuterbaneling.jpg': new Audio("sounds/baneling_burst.mp3"),
-        'images/infestor.png': new Audio("sounds/infestor_derp.mp3"),
+        'images/cuter_baneling.jpg': new Audio("sounds/baneling_burst.mp3"),
+        'images/infestor.jpg': new Audio("sounds/infestor_derp.mp3"),
         'images/sky_zerg.jpg': new Audio("sounds/multalisk.mp3"),
-        'images/Ultralisk.png': new Audio("sounds/ultralisk.mp3"),
+        'images/ultralisk.jpg': new Audio("sounds/ultralisk.mp3"),
         'images/marine.jpg': new Audio("sounds/marine.mp3"),
-        'images/Zergling.jpg': new Audio("sounds/zergling.mp3"),
+        'images/zergling.jpg': new Audio("sounds/zergling.mp3"),
         "clap": new Audio("sounds/applause.mp3"),
         "zerg_lick": new Audio("sounds/zerg_lick.mp3"),
         "rage": new Audio('sounds/Zealot_Death.mp3')
@@ -33,8 +31,11 @@ function initialize(){
     carBot = new Memory_match(image_array,sound_object);
     carBot.start_app();
 }
-
-
+$(window).on('load',change_card_height);
+function change_card_height(){
+    var image_height = $('.back img').css('height');
+        $(".front img, .back, .card, .front" ).css('height',image_height);
+}
 function Memory_match(images,sounds){
     this.images = images;
     this.sounds = sounds;
@@ -162,8 +163,6 @@ function Memory_match(images,sounds){
     }//end start app
     this.start_match = function(){
         $('.card').removeClass('flipped');
-        let images_height = $('.back').css('height');
-        $( ".card" ).css("height",images_height);
     }
     this.lock_delay = function(){
         self.lock = false;
@@ -215,10 +214,10 @@ function Memory_match(images,sounds){
     this.display_accuracy = function(){
         var old_accuracy = self.accuracy;
         self.accuracy = (Math.floor(self.matches/self.attempts*100));
-        var a = setInterval(change_accuracy,10);
+        var increment = setInterval(change_accuracy,10);
         function change_accuracy(){
             if(old_accuracy===self.accuracy){
-                clearInterval(a);
+                clearInterval(increment);
             }
             else{
                 if(old_accuracy>self.accuracy){

@@ -77,7 +77,8 @@ body{
     transition: 1s;
 }
 .front img, .back img{
-    width: inherit;
+    max-height:100%;
+    width:100%;
     border-radius: inherit;
 }
 .front{
@@ -87,7 +88,7 @@ body{
     position:relative;
 }
 .front, .back{
-    width: 100%;
+    width:100%;
     border-radius: inherit;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -97,9 +98,11 @@ body{
     border: 2px solid gold;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    /* background-color: #44d4f5; */
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+}
+.front img{
+   
 }
 .flipped{
     -webkit-transform: rotateY(180deg);
