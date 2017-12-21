@@ -10,3 +10,12 @@
 .devicon-php-plain{
     font-size:40px;
 }
+.show_project_title{
+    bottom:0;
+    -webkit-transition:bottom .3s ease-out .1s,color .2s ease-out 0s;
+    transition: bottom .3s ease-out .1s,color .2s ease-out 0s;
+}
+.show_overlay{
+    opacity:0.8;
+	filter:alpha(opacity=80);
+}
