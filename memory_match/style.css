@@ -48,9 +48,13 @@ body{
     display: none;
 }
 .card_row{
+    display:-webkit-box;
+    display:-ms-flexbox;
     display:flex;
     width:100%;
-    justify-content:space-evenly;
+    -webkit-box-pack:space-evenly;
+        -ms-flex-pack:space-evenly;
+            justify-content:space-evenly;
 }
 #modal_body{
     background-size: 100%, 100%;
@@ -346,7 +350,6 @@ body{
         display:-webkit-box;
         display:-ms-flexbox;
         display:flex;
-        /* height:72%; */
         width:70%;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -419,7 +422,7 @@ body{
         font-size:1em;
     }
 }
-@media screen and (min-width:661px) and (orientation:landscape){
+@media screen and (min-width:660px) and (orientation:landscape){
      #header_container{
         font-size:2em;
     }
@@ -458,7 +461,9 @@ body{
 @media screen and (min-width:1500px) and (orientation:landscape){
     .game_area{
         width:55%;
-        align-items:flex-start;
+        -webkit-box-align:start;
+            -ms-flex-align:start;
+                align-items:flex-start;
     }
     #stats_container{
         margin-right:5%;
@@ -467,7 +472,9 @@ body{
 @media screen and (min-width:1500px) and (orientation:landscape){
     .game_area{
         width:50%;
-        align-items:flex-start;
+        -webkit-box-align:start;
+            -ms-flex-align:start;
+                align-items:flex-start;
         margin-right:10%;
     }
 }
@@ -553,6 +560,7 @@ body{
         width:33%;
     }
     body{
-        align-content: start;
+        -ms-flex-line-pack: start;
+            align-content: start;
     }
 }
