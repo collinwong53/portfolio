@@ -1,6 +1,9 @@
 $(document).ready(initialize)
 var carBot =null;
-
+$( window ).resize(function() {
+    let images_height = $('.back img').css('height');
+    $( ".card" ).css("height",images_height);
+});
 function initialize(){
     var image_array=[
         'images/banelings.jpg',
@@ -159,6 +162,8 @@ function Memory_match(images,sounds){
     }//end start app
     this.start_match = function(){
         $('.card').removeClass('flipped');
+        let images_height = $('.back').css('height');
+        $( ".card" ).css("height",images_height);
     }
     this.lock_delay = function(){
         self.lock = false;
