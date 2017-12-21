@@ -449,6 +449,7 @@ body{
     }
     .game_area{
         height: 85%;
+        margin-left:5%;
     }
     body{
         min-height:600px;
@@ -458,6 +459,7 @@ body{
 @media screen and (min-width:1300px) and (orientation:landscape){
     .game_area{
         width: 60%;
+        margin-left:5%;
     }
 }
 
