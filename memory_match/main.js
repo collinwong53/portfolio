@@ -1,7 +1,7 @@
 $(document).ready(initialize)
 var carBot =null;
 var view = null;
-$(window).resize(change_card_height());
+$(window).on('resize',change_card_height);
 function initialize(){
     var image_array=[
         'images/banelings.jpg',
@@ -187,6 +187,7 @@ function Memory_match(images,sounds){
         $('.game_area').html('');
         $('#modal_body').css('display','none');
         self.start_app();
+        change_card_height();
     }//end reset button
     this.reset_cards = function(){
         self.display_stats();
