@@ -415,6 +415,7 @@ body{
     }
     .game_area{
         width:65%;
+        height: 75%;
     }
 }
 @media screen and (min-width:401px) and (max-width:550px) and (orientation:landscape){
@@ -489,7 +490,7 @@ body{
     }
     .game_area{
         height: 85%;
-        margin-left:5%;
+        /* margin-left:5%; */
     }
     body{
         min-height:600px;
@@ -507,32 +508,26 @@ body{
 
 @media screen and (min-width:1500px) and (orientation:landscape){
     .game_area{
-        width:55%;
-        -webkit-box-align:start;
-            -ms-flex-align:start;
-                align-items:flex-start;
-    }
-    #stats_container{
-        margin-right:5%;
-    }
-}
-@media screen and (min-width:1500px) and (orientation:landscape){
-    .game_area{
-        width:50%;
-        -webkit-box-align:start;
-            -ms-flex-align:start;
-                align-items:flex-start;
+        width:55%; 
     }
     body{
-        min-height:500px;
+        min-height:800px;
+        align-items:flex-start;
+        justify-content:flex-start;
     }
     #stats_container{
-        margin-right:0%;
+        font-size:2.8em;
     }
 }
 @media screen and (min-width:1700px) and (orientation:landscape){
     body{
-        min-height:700px;
+        min-height:1000px;
+    }
+    .game_area{
+        width:65%;
+    }
+    #stats_container{
+        font-size:3em;
     }
 }
 /***********************
