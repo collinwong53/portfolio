@@ -409,7 +409,7 @@ body{
 }
 @media screen and (min-width:401px) and (orientation:landscape){
     body{
-        min-height: 260px;
+        min-height: 220px;
         justify-content:space-evenly;
         align-items:center;
     }
