@@ -409,7 +409,7 @@ body{
 }
 @media screen and (min-width:401px) and (orientation:landscape){
     body{
-        min-height:300px;
+        min-height: 260px;
         justify-content:space-evenly;
         align-items:center;
     }
@@ -524,7 +524,7 @@ body{
         min-height:1000px;
     }
     .game_area{
-        width:65%;
+        width: 60%;
     }
     #stats_container{
         font-size:3em;
@@ -562,8 +562,8 @@ body{
         width:30%;
     }
     .game_area{
-        height:100%;
-        width:60%;
+        height: 90%;
+        width: 55%;
     }
 }
 @media screen and (min-width:700px) and (max-height:450px) and (orientation:landscape){
