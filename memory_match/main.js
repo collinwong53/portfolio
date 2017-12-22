@@ -46,6 +46,7 @@ function Memory_match(images,sounds){
     this.accuracy = 0;
     this.games_played =0;
     this.lock = false;
+    this.reset_lock = false;
     this.first_card_clicked = null;
     this.second_card_clicked = null;
     this.random_sort = function(image_array){
@@ -92,7 +93,6 @@ function Memory_match(images,sounds){
             self.first_card_clicked = card;
         }//end first card check
         else if(self.first_card_clicked.attr('id') !== card.attr('id')){
-            console.log("second card");
             self.attempts++;
             card.addClass('flipped');
             self.second_card_clicked = card;
@@ -100,6 +100,7 @@ function Memory_match(images,sounds){
                 var image = self.second_card_clicked.find('img').attr('src');
                 self.sounds[image].play();
                 self.lock = true;
+                self.reset_lock = true;
                 self.matches++;
                 self.display_accuracy();
                 self.check_win();
@@ -107,10 +108,15 @@ function Memory_match(images,sounds){
             else{
                 if(self.attempts === 18) {
                     self.display_gg();
+                    setTimeout(function(){
+                        self.reset_lock = false}
+                    ,1000);
+                }else{
+                    self.reset_lock = true;
+                    setTimeout(self.reset_cards,1000);
                 }//end if too many attempts
                 self.display_accuracy();
                 self.lock = true;
-                setTimeout(self.reset_cards,1000);
             }//end else if no match
         }//end second card check
     }//end cards clicked
@@ -118,10 +124,12 @@ function Memory_match(images,sounds){
         if(this.attempts === 18 && this.matches !==9){
             self.display_gg();
             self.lock = true;
+            self.reset_lock = true
             setTimeout(this.lock_delay,1000);
         }//end if
         else {
             self.lock = true;
+            self.reset_lock = true;
             $(self.first_card_clicked).find('.front').fadeOut(1500);
             $(self.second_card_clicked).find('.front').fadeOut(1500);
             setTimeout(self.reset_cards,1000);
@@ -157,6 +165,7 @@ function Memory_match(images,sounds){
         $('.reset').click(this.reset_button);
         $('.card').addClass('flipped');
         self.lock = true;
+        self.reset_lock = true;
         $('#modal_body').css('background-image','url(images/clapping_zerg.gif)');
         setTimeout(this.start_match,2000);
         setTimeout(self.lock_delay,3000);
@@ -167,6 +176,7 @@ function Memory_match(images,sounds){
     }
     this.lock_delay = function(){
         self.lock = false;
+        self.reset_lock = false;
     }
     this.display_gg = function(){
         $('#modal_body').css("background-image", "url(images/GG.gif)");
@@ -174,7 +184,7 @@ function Memory_match(images,sounds){
         sounds['rage'].play();
     }//end display gg
     this.reset_button = function(){
-        if(self.lock === true){
+        if(self.reset_lock === true){
             return;
         }//end if
         self.first_card_clicked = null;
@@ -182,6 +192,7 @@ function Memory_match(images,sounds){
         self.reset_stats();
         self.display_stats();
         self.lock = false;
+        self.reset_lock = false;
         self.games_played++;
         $('.back').removeAttr('id');
         $('.front').removeAttr('id');
@@ -209,6 +220,7 @@ function Memory_match(images,sounds){
             }//disable glow
         }//add display none;
         self.lock = false;
+        self.reset_lock =false;
         self.first_card_clicked = null;
         self.second_card_clicked = null;
         self.pair = false;
