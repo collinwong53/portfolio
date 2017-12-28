@@ -38,7 +38,12 @@ function View(){
     const self = this;
     this.mute = function(){
         $('.sound_off, .sound_on').toggleClass('hidden');
-        console.log('clicked');
+        if(!carBot.is_muted){
+            for(let audio in carBot.sounds){
+                carBot.sounds[audio].pause();
+            }
+        }
+        carBot.is_muted = !carBot.is_muted;
     }
     this.start_app = function(){
         self.apply_click_handlers();
@@ -55,6 +60,7 @@ function View(){
 function Memory_match(images,sounds){
     this.images = images;
     this.sounds = sounds;
+    this.is_muted = false;
     const self = this;
     this.pair = false;
     this.matches = 0;
@@ -114,7 +120,9 @@ function Memory_match(images,sounds){
             self.second_card_clicked = card;
             if(self.second_card_clicked.find('img').attr('src') === self.first_card_clicked.find('img').attr('src')){
                 var image = self.second_card_clicked.find('img').attr('src');
-                self.sounds[image].play();
+                if(!self.is_muted){
+                    self.sounds[image].play();
+                }
                 self.lock = true;
                 self.reset_lock = true;
                 self.matches++;
@@ -153,11 +161,15 @@ function Memory_match(images,sounds){
             if(self.matches===9&&this.accuracy<60){
                 $("#modal_body").css("background-image","url(images/balllicking.gif)");
                 $("#modal_body").css("display", "block");
-                self.sounds["zerg_lick"].play();
+                if(!self.is_muted){
+                    self.sounds["zerg_lick"].play();
+                }
             }//end if
             else if(this.matches === 9){
                 $('#modal_body').css("display","block");
-                self.sounds['clap'].play();
+                if(!self.is_muted){
+                    self.sounds['clap'].play();
+                }
             }//end else if
         }//end else
         return;
@@ -169,7 +181,6 @@ function Memory_match(images,sounds){
                 $(this).toggleClass("glow");
             }
         })
-
     }//end add click handlers
     this.display_stats = function(){
         $('.games_played').find('.value').text(self.games_played);
@@ -197,7 +208,9 @@ function Memory_match(images,sounds){
     this.display_gg = function(){
         $('#modal_body').css("background-image", "url(images/GG.gif)");
         $("#modal_body").css("display", "block");
-        sounds['rage'].play();
+        if(!self.is_muted){
+            sounds['rage'].play();
+        }
     }//end display gg
     this.reset_button = function(){
         if(self.reset_lock === true){
