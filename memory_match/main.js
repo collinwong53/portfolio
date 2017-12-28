@@ -1,7 +1,6 @@
 $(document).ready(initialize)
 var carBot =null;
 var view = null;
-$(window).on('resize',change_card_height);
 function initialize(){
     var image_array=[
         'images/banelings.jpg',
@@ -28,18 +27,35 @@ function initialize(){
         "zerg_lick": new Audio("sounds/zerg_lick.mp3"),
         "rage": new Audio('sounds/Zealot_Death.mp3')
     }
+    view = new View();
     carBot = new Memory_match(image_array,sound_object);
+    view.start_app();
     carBot.start_app();
+    $(window).on('resize',view.change_card_height);
+    $(window).on('load',view.change_card_height);
 }
-$(window).on('load',change_card_height);
-function change_card_height(){
-    var image_height = $('.back img').css('height');
+function View(){
+    const self = this;
+    this.mute = function(){
+        $('.sound_off, .sound_on').toggleClass('hidden');
+        console.log('clicked');
+    }
+    this.start_app = function(){
+        self.apply_click_handlers();
+    }
+    this.apply_click_handlers = function(){
+        $('.mute_button').click(self.mute);
+    }
+    this.change_card_height = function(){
+        let image_height = $('.back img').css('height');
         $(".front img, .back, .card, .front" ).css('height',image_height);
+    }
 }
+
 function Memory_match(images,sounds){
     this.images = images;
     this.sounds = sounds;
-    var self = this;
+    const self = this;
     this.pair = false;
     this.matches = 0;
     this.attempts = 0;
@@ -50,21 +66,21 @@ function Memory_match(images,sounds){
     this.first_card_clicked = null;
     this.second_card_clicked = null;
     this.random_sort = function(image_array){
-        var sorted_array = [];
+        let sorted_array = [];
         while(image_array.length>0){
-            var i = Math.floor(Math.random()*image_array.length);
+            let i = Math.floor(Math.random()*image_array.length);
             sorted_array.push(image_array.splice(i,1));
         }//end inner while
         return sorted_array;
     }//end random_sort
     this.create_board =function(image_array){
-        var images = image_array.concat(image_array);
-        var random_images = this.random_sort(images);
+        let images = image_array.concat(image_array);
+        let random_images = this.random_sort(images);
         $('<div>').addClass('card_row').attr('id','row1').appendTo('.game_area');
         $('<div>').addClass('card_row').attr('id','row2').appendTo('.game_area');
         $('<div>').addClass('card_row').attr('id','row3').appendTo('.game_area');
-        for(var i = 0; i < random_images.length;i++){
-            var image = random_images[i];
+        for(let i = 0; i < random_images.length;i++){
+            let image = random_images[i];
             if(i<6){
                 $('<div>').addClass('card').attr('id', 'card' + i).appendTo('#row1');
             }else if(i<12){
@@ -83,8 +99,8 @@ function Memory_match(images,sounds){
         $('.accuracy').find(".value").text(0);
     }
     this.card_clicked = function(){
-        var card = $(this);
-        var face = card.find('.front').is('#hidden');
+        const card = $(this);
+        const face = card.find('.front').hasClass('hidden');
        if(self.lock || face){
             return;
        }//end lock check;
@@ -149,7 +165,7 @@ function Memory_match(images,sounds){
     this.apply_click_handlers = function(){
         $('.card').click(self.card_clicked);
         $('.card').hover(function(){
-            if(!$(this).find('.front').is('#hidden')){
+            if(!$(this).find('.front').hasClass('hidden')){
                 $(this).toggleClass("glow");
             }
         })
@@ -172,7 +188,7 @@ function Memory_match(images,sounds){
     }//end start app
     this.start_match = function(){
         $('.card').removeClass('flipped');
-        change_card_height();
+        view.change_card_height();
     }
     this.lock_delay = function(){
         self.lock = false;
@@ -199,7 +215,7 @@ function Memory_match(images,sounds){
         $('.game_area').html('');
         $('#modal_body').css('display','none');
         self.start_app();
-        change_card_height();
+        view.change_card_height();
     }//end reset button
     this.reset_cards = function(){
         self.display_stats();
@@ -210,8 +226,8 @@ function Memory_match(images,sounds){
             card_2.removeClass('flipped');
         }// if no pair
         else{
-            card_1.find('.front').attr('id','hidden');
-            card_2.find('.front').attr('id','hidden');
+            card_1.find('.front').addClass('hidden');
+            card_2.find('.front').addClass('hidden');
             if(card_1.hasClass('glow')){
                 card_1.removeClass('glow');
             }//disable glow
