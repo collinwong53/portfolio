@@ -7,6 +7,7 @@
     <title>Title</title>
     <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/5cf9943ac5.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -36,6 +37,24 @@
     <div id="bottom_container">
         <button id="reset_bottom" class="reset">Reset Game</button>
     </div>
+    <div id="side_buttons">
+        <button id="reset_side" class="reset">Reset Game</button>
+        <div id="mute_side" class="mute_button">
+            <i class="sound_on fa fa-volume-up" aria-hidden="true"></i>
+            <i class="sound_off hidden fa fa-volume-off"></i>
+        </div>
+    </div>
+</div>
+<div id="modal_body"></div>
+<div class="game_area">
+</div>
+<div id="bottom_container">
+    <div id="mute_bottom" class="mute_button">
+        <i class="hidden sound_off fa fa-volume-off" aria-hidden="true"></i>
+        <i class="sound_on fa fa-volume-up" aria-hidden="true"></i>
+    </div>
+    <button id="reset_bottom" class="reset">Reset Game</button>
+</div>
 </body>
 
 </html>
