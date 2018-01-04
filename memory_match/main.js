@@ -166,6 +166,7 @@ function Memory_match(images,sounds){
         $('.card').addClass('flipped');
         self.lock = true;
         self.reset_lock = true;
+        change_card_height();
         $('#modal_body').css('background-image','url(images/clapping_zerg.gif)');
         setTimeout(this.start_match,2000);
         setTimeout(self.lock_delay,3000);
@@ -177,6 +178,7 @@ function Memory_match(images,sounds){
     this.lock_delay = function(){
         self.lock = false;
         self.reset_lock = false;
+        change_card_height();
     }
     this.display_gg = function(){
         $('#modal_body').css("background-image", "url(images/GG.gif)");
