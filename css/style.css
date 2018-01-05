@@ -41,3 +41,9 @@
     line-height:200px;
     text-shadow: 2px 2px gray;
 }
+#main-footer{
+    padding-top:20px;
+}
+.social-links{
+    margin-bottom:0px;
+}
