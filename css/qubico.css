@@ -632,9 +632,9 @@ a:focus,
     transition:background .3s ease-out;
 }
 
-.features .media:hover .icon {
+/* .features .media:hover .icon {
     background:#5CC9DF;
-}
+} */
 
 .features .icon .icon-1 {
     width:80px;
@@ -645,7 +645,7 @@ a:focus,
     transition:all .3s ease-out .2s;
 }
 
-.features .icon .icon-2 {
+/* .features .icon .icon-2 {
     width:80px;
     position:relative;
     top:-80px;
@@ -670,7 +670,7 @@ a:focus,
     transform:scale(1);
     -webkit-transition:all .3s ease-out .2s;
     transition:all .3s ease-out .2s;
-}
+} */
 
 .features .media {
     margin-bottom:40px;
@@ -685,9 +685,9 @@ a:focus,
     transition:color .3s ease-out;
 }
 
-.features .media:hover h4 {
+/* .features .media:hover h4 {
     color:#5CC9DF;
-}
+} */
 
 /*--------------------
 --CTA iPhones Styles--
