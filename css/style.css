@@ -33,3 +33,11 @@
     -webkit-transition:all .3s ease-out .2s;
     transition:all .3s ease-out .2s;
 }
+.overlay-mask{
+    color:white;
+    font-size:25px;
+    font-weight:bold;
+    text-align:center;
+    line-height:200px;
+    text-shadow: 2px 2px gray;
+}
