@@ -308,6 +308,7 @@ function Memory_match(images,sounds){
         }else{
             reset_button.attr('disabled',true);
             reset_button.css('background-color','gray');
+            reset_button.removeClass('reset_highlight');
         }
     }
 }//end memory_match
