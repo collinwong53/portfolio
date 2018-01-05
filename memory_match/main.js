@@ -64,7 +64,7 @@ function Memory_match(images,sounds){
     const self = this;
     this.pair = false;
     this.matches = 0;
-    this.attempts = 0;
+    this.attempts = 18;
     this.accuracy = 0;
     this.games_played =0;
     this.lock = false;
@@ -100,7 +100,8 @@ function Memory_match(images,sounds){
     }//end create board
     this.reset_stats = function(){
         self.matches = 0;
-        self.attempts = 0;
+        self.attempts = 18;
+        $('.attempts').css('color','white');
         self.accuracy = 0;
         $('.accuracy').find(".value").text(0);
     }
@@ -115,7 +116,7 @@ function Memory_match(images,sounds){
             self.first_card_clicked = card;
         }//end first card check
         else if(self.first_card_clicked.attr('id') !== card.attr('id')){
-            self.attempts++;
+            self.attempts--;
             card.addClass('flipped');
             self.second_card_clicked = card;
             if(self.second_card_clicked.find('img').attr('src') === self.first_card_clicked.find('img').attr('src')){
@@ -130,7 +131,7 @@ function Memory_match(images,sounds){
                 self.check_win();
             }//end if match
             else{
-                if(self.attempts === 18) {
+                if(self.attempts === 0) {
                     self.display_gg();
                     setTimeout(function(){
                         self.reset_lock = false}
@@ -143,9 +144,10 @@ function Memory_match(images,sounds){
                 self.lock = true;
             }//end else if no match
         }//end second card check
+        self.display_stats();
     }//end cards clicked
     this.check_win = function(){
-        if(this.attempts === 18 && this.matches !==9){
+        if(this.attempts === 0 && this.matches !==9){
             self.display_gg();
             self.lock = true;
             self.reset_lock = true
@@ -184,7 +186,13 @@ function Memory_match(images,sounds){
     }//end add click handlers
     this.display_stats = function(){
         $('.games_played').find('.value').text(self.games_played);
-        $('.attempts').find('.value').text(self.attempts+'/18');
+        $('.attempts').find('.value').text(self.attempts);
+        if(self.attempts===10){
+            $('.attempts').css('color','yellow');
+        }
+        if(self.attempts===5){
+            $('.attempts').css('color','red');
+        }
     }//end display stats
     this.start_app = function(){
         this.create_board(images);
@@ -256,7 +264,7 @@ function Memory_match(images,sounds){
     }//end reset cards
     this.display_accuracy = function(){
         var old_accuracy = self.accuracy;
-        self.accuracy = (Math.floor(self.matches/self.attempts*100));
+        self.accuracy = (Math.floor(self.matches/(-(self.attempts-18))*100));
         var increment = setInterval(change_accuracy,10);
         function change_accuracy(){
             if(old_accuracy===self.accuracy){
