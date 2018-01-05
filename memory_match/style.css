@@ -138,12 +138,14 @@ body{
     border:none;
     font-family: Arial;
     color: white;
-    background: #35bcfa;
+    background: gray;
     text-decoration: none;
   }
 
 .reset:hover {
     cursor: pointer;
+}
+.reset_highlight{
     background: #3cb0fd;
     background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
     background-image: -o-linear-gradient(top, #3cb0fd, #3498db);

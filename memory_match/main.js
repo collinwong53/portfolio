@@ -125,19 +125,23 @@ function Memory_match(images,sounds){
                     self.sounds[image].play();
                 }
                 self.lock = true;
+                self.toggle_disabled_reset();
                 self.reset_lock = true;
                 self.matches++;
                 self.display_accuracy();
                 self.check_win();
             }//end if match
             else{
-                if(self.attempts === 0) {
+                if(self.attempts === 0){
                     self.display_gg();
                     setTimeout(function(){
-                        self.reset_lock = false}
+                        self.reset_lock = false
+                        self.toggle_disabled_reset();
+                    }
                     ,1000);
                 }else{
                     self.reset_lock = true;
+                    self.toggle_disabled_reset();
                     setTimeout(self.reset_cards,1000);
                 }//end if too many attempts
                 self.display_accuracy();
@@ -183,6 +187,18 @@ function Memory_match(images,sounds){
                 $(this).toggleClass("glow");
             }
         })
+        $('#modal_body').click(function(){
+            self.reset_button();
+        })
+        $('.reset').hover(function(){
+            if(!$('.reset').attr('disabled')){
+                $('.reset').addClass('reset_highlight');
+                }
+            },//mouse in
+            function(){
+                $('.reset').removeClass('reset_highlight');
+                }//mouse out
+            );
     }//end add click handlers
     this.display_stats = function(){
         $('.games_played').find('.value').text(self.games_played);
@@ -201,6 +217,7 @@ function Memory_match(images,sounds){
         $('.card').addClass('flipped');
         self.lock = true;
         self.reset_lock = true;
+        $('.reset')
         $('#modal_body').css('background-image','url(images/clapping_zerg.gif)');
         setTimeout(this.start_match,2000);
         setTimeout(self.lock_delay,3000);
@@ -212,6 +229,7 @@ function Memory_match(images,sounds){
     this.lock_delay = function(){
         self.lock = false;
         self.reset_lock = false;
+        self.toggle_disabled_reset();
     }
     this.display_gg = function(){
         $('#modal_body').css("background-image", "url(images/GG.gif)");
@@ -228,8 +246,7 @@ function Memory_match(images,sounds){
         self.second_card_clicked = null;
         self.reset_stats();
         self.display_stats();
-        self.lock = false;
-        self.reset_lock = false;
+        self.toggle_disabled_reset();
         self.games_played++;
         $('.back').removeAttr('id');
         $('.front').removeAttr('id');
@@ -258,6 +275,7 @@ function Memory_match(images,sounds){
         }//add display none;
         self.lock = false;
         self.reset_lock =false;
+        self.toggle_disabled_reset();
         self.first_card_clicked = null;
         self.second_card_clicked = null;
         self.pair = false;
@@ -282,5 +300,14 @@ function Memory_match(images,sounds){
             }
         }//end else
     }//end accuracy
-
+    this.toggle_disabled_reset = function(){
+        let reset_button = $('.reset');
+        if(reset_button.attr('disabled')){
+            reset_button.removeAttr('disabled');
+            reset_button.css('background-color','#35bcfa');
+        }else{
+            reset_button.attr('disabled',true);
+            reset_button.css('background-color','gray');
+        }
+    }
 }//end memory_match
