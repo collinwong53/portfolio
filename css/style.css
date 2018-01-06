@@ -13,6 +13,7 @@
 .show_project_title{
     bottom:0;
     -webkit-transition:bottom .3s ease-out .1s,color .2s ease-out 0s;
+    -o-transition: bottom .3s ease-out .1s,color .2s ease-out 0s;
     transition: bottom .3s ease-out .1s,color .2s ease-out 0s;
 }
 .show_overlay{
