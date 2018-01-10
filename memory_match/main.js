@@ -86,7 +86,7 @@ function Memory_match(images, sounds) {
         let images = image_array.concat(image_array);
         //randomly sort the images
         let random_images = this.random_sort(images);
-        for(let i = 0; i<3; i++){
+        for(let i = 1; i<4; i++){
             $('<div>').addClass('card_row').attr('id', 'row'+i).appendTo('.game_area');
         }
         for (let i = 0; i < random_images.length; i++) {
