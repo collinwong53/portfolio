@@ -86,7 +86,7 @@ function Memory_match(images, sounds) {
         let images = image_array.concat(image_array);
         //randomly sort the images
         let random_images = this.random_sort(images);
-        for(let i = 1; i<4; i++){
+        for(let i = 0; i<3; i++){
             $('<div>').addClass('card_row').attr('id', 'row'+i).appendTo('.game_area');
         }
         for (let i = 0; i < random_images.length; i++) {
@@ -98,7 +98,7 @@ function Memory_match(images, sounds) {
             } else {
                 $('<div>').addClass('card').attr('id', 'card' + i).appendTo('#row3');
             }
-            $('<div>').addClass('front').prepend('<img src='+ image + "'" + '/>').appendTo('#card' + i);
+            $('<div>').addClass('front').prepend('<img src=' + "'" + image + "'" + '/>').appendTo('#card' + i);
             $('<div>').addClass('back').prepend('<img src="images/card_pack.png"/>').appendTo('#card' + i);
         } //end for loop
     } //end create board
