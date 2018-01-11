@@ -30,7 +30,13 @@ body {
     height: 15%;
     width: 100%;
 }
+i.sound_on.fa.fa-volume-up {
+    position: relative;
+}
 
+i.sound_off.fa.fa-volume-off{
+    position: absolute;
+}
 body {
     background-image: url("images/carbot_background.jpg");
     background-repeat: no-repeat;
@@ -139,7 +145,7 @@ body {
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }
 
 .reset:focus {
@@ -268,7 +274,7 @@ body {
         font-size: .7em;
     }
     #mute_bottom {
-        font-size: 3em;
+        font-size: 2em;
     }
 }
 
