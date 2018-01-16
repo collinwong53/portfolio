@@ -43,15 +43,34 @@ $(document).ready(function() {
 			$('#contact-form button').html('<i class="fa fa-spinner fa-spin"></i>'+sendingMessage);
 			
 			var formInput = $(this).serialize();
-			$.post($(this).attr('action'),formInput, function(data){
-				$('#contact-form button').html('<i class="fa fa-check"></i>'+okMessage);
-				$('#contact-form')[0].reset();
-				setTimeout(function(){
-					$('#contact-form button').html(buttonCopy);
-					$('#contact-form').removeClass('clicked');
-				},2000);
-				
-			});
+			// $.post($(this).attr('action'),formInput, function(data){
+				// $('#contact-form button').html('<i class="fa fa-check"></i>'+okMessage);
+				// $('#contact-form')[0].reset();
+				// setTimeout(function(){
+				// 	$('#contact-form button').html(buttonCopy);
+				// 	$('#contact-form').removeClass('clicked');
+				// },2000);
+			// });
+			$.ajax({
+				type:"POST",
+				url:$(this).attr('action'),
+				data:formInput,
+				success: function(data){
+					$('#contact-form button').html('<i class="fa fa-check"></i>'+okMessage);
+					$('#contact-form')[0].reset();
+					setTimeout(function(){
+						$('#contact-form button').html(buttonCopy);
+						$('#contact-form').removeClass('clicked');
+					},2000);
+				},
+				errors:function(data){
+					$('#contact-form button').html('<i class="fa fa-times"></i>'+errorMessage);
+					setTimeout(function(){
+						$('#contact-form button').html(buttonCopy);
+						$('#contact-form').removeClass('clicked');
+					},2000);
+				}
+			})
 		}
 		
 		return false;	
