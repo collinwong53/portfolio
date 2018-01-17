@@ -452,7 +452,8 @@ a:focus,
     position: relative;
     height: auto !important;
     padding:300px 0 250px;
-	z-index: 1;
+    z-index: 1;
+    background: transparent;
 }
 
 .jumbotron.bg-image .container{
