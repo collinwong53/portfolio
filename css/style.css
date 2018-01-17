@@ -81,7 +81,7 @@ img#banner_background {
     z-index: -1;
 }
 #about_me p {
-    width: 50%;
+    width: 500px;
     margin: auto;
 }
 section#about_me {
@@ -112,6 +112,6 @@ div#meistertask_icon {
 }
 @media screen and (min-width:768px) and (max-width:990px){
     ul.nav.navbar-nav.navbar-right{
-        padding-left:60px;
+        padding-left:66px;
     }
 }
