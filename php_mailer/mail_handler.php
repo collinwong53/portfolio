@@ -3,30 +3,33 @@ require_once('email_config.php');
 require('phpmailer/PHPMailer/PHPMailerAutoload.php');
 $message = [];
 $output = [
-    'success'=>null,
+    'success'=>true,
     'messages'=>[]
 ];
 
 $message['name'] = filter_var($_POST['contactName'],FILTER_SANITIZE_STRING);
 if(empty($message['name'])){
     $output['success'] = false;
-    $output['message'][] = 'missing name key';
+    $output['messages'][] = 'missing name key';
+    $output['missing_name'] = true;
 }
 
 $message['email'] = filter_var($_POST['email'],FILTER_VALIDATE_EMAIL);
 if(empty($message['email'])){
     $output['success'] = false;
-    $output['message'][] = 'invalid email key';
+    $output['messages'][] = 'invalid email key';
+    $output['invalid_email'] = true; 
 }
 $message['comments'] = filter_var($_POST['comments'],FILTER_SANITIZE_STRING);
 if(empty($message['comments'])){
     $output['success'] = false;
-    $output['message'][] = 'missing comment key';
+    $output['messages'][] = 'missing comment key';
+    $output['comments'] = true;
 }
 
-if($output['success'] !==null){
-    http_response_code(400);
-    echo json_encode($output);
+if($output['success'] ===false){
+    // http_response_code(400);
+    print json_encode($output);
     exit();
 }
 $message['comments'] = nl2br($message['comments']);
