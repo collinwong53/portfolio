@@ -60,6 +60,9 @@ body {
 .player_stats ul {
     padding: 0;
 }
+*{
+    box-sizing: border-box;
+}
 
 
 /********************
@@ -201,7 +204,7 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 25%;
+    height: 23%;
 }
 
 .player_hpAndPower {
@@ -641,9 +644,6 @@ div.player_box.tablet_player_box {
     .bottom_container {
         height: 30%;
     }
-    .player_stats {
-        width: 19%;
-    }
     .player_hpAndPower {
         font-size: 10px;
     }
@@ -665,7 +665,7 @@ div.player_box.tablet_player_box {
 }
 @media only screen and (min-width: 1120px) and (min-height:850px){
     .player_box{
-        width:85%;
+        width:80%;
     }
 }
 @media only screen and (min-width: 1300px) {
@@ -696,9 +696,6 @@ div.player_box.tablet_player_box {
 @media only screen and (min-width: 1420px) {
     body {
         min-height: 750px;
-    }
-    .player_stats {
-        width: 20%;
     }
     /*     .player_key_display {
         position: relative;
