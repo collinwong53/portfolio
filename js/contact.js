@@ -62,12 +62,12 @@ $(document).ready(function () {
 							$('#contact-form button').html(buttonCopy);
 							$('#contact-form').removeClass('clicked');
 						}, 2000);
-					} else {
-						$('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
-						setTimeout(function () {
-							$('#contact-form button').html(buttonCopy);
-							$('#contact-form').removeClass('clicked');
-						}, 2000);
+					// } else {
+					// 	$('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
+					// 	setTimeout(function () {
+					// 		$('#contact-form button').html(buttonCopy);
+					// 		$('#contact-form').removeClass('clicked');
+					// 	}, 2000);
 
 					}
 				}
