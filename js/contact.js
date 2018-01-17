@@ -54,6 +54,7 @@ $(document).ready(function () {
 				type: "POST",
 				url: $(this).attr('action'),
 				data: formInput,
+				dataType: 'JSON',
 				success: function (data) {
 					if (data.success) {
 						$('#contact-form button').html('<i class="fa fa-check"></i>' + okMessage);
@@ -62,22 +63,35 @@ $(document).ready(function () {
 							$('#contact-form button').html(buttonCopy);
 							$('#contact-form').removeClass('clicked');
 						}, 2000);
+					} else {
+						// if (data.invalid_email) {
+
+						// }
+						console.log('hello no email', x	data);
+						var invalidEmail = $('#contact-mail').data('error-invalid');
+						$('#contact-mail').parents('.controls').append('<span class="error-message" style="display:none;">' + invalidEmail + '.</span>').find('.error-message').fadeIn('fast');
+						$('#contact-mail').addClass('inputError');
+						$('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
+						$('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
+						setTimeout(function () {
+							$('#contact-form button').html(buttonCopy);
+							$('#contact-form').removeClass('clicked');
+						}, 2000);
+					}
 					// } else {
 					// 	$('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
 					// 	setTimeout(function () {
 					// 		$('#contact-form button').html(buttonCopy);
 					// 		$('#contact-form').removeClass('clicked');
 					// 	}, 2000);
-
-					}
 				},
-				error: function(err){
+				error: function (err) {
 					console.error(err);
-					$('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
-						setTimeout(function () {
-							$('#contact-form button').html(buttonCopy);
-							$('#contact-form').removeClass('clicked');
-						}, 2000);
+					// $('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
+					// 	setTimeout(function () {
+					// 		$('#contact-form button').html(buttonCopy);
+					// 		$('#contact-form').removeClass('clicked');
+					// 	}, 2000);
 				}
 			})
 		}
