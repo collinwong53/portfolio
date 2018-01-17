@@ -70,6 +70,14 @@ $(document).ready(function () {
 					// 	}, 2000);
 
 					}
+				},
+				error: function(err){
+					console.error(err);
+					$('#contact-form button').html('<i class="fa fa-times"></i>' + errorMessage);
+						setTimeout(function () {
+							$('#contact-form button').html(buttonCopy);
+							$('#contact-form').removeClass('clicked');
+						}, 2000);
 				}
 			})
 		}
