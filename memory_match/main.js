@@ -82,11 +82,13 @@ function Memory_match(images, sounds) {
         return sorted_array;
     } //end random_sort
     this.create_board = function (image_array) {
+        //double the images
         let images = image_array.concat(image_array);
+        //randomly sort the images
         let random_images = this.random_sort(images);
-        $('<div>').addClass('card_row').attr('id', 'row1').appendTo('.game_area');
-        $('<div>').addClass('card_row').attr('id', 'row2').appendTo('.game_area');
-        $('<div>').addClass('card_row').attr('id', 'row3').appendTo('.game_area');
+        for(let i = 1; i<4; i++){
+            $('<div>').addClass('card_row').attr('id', 'row'+i).appendTo('.game_area');
+        }
         for (let i = 0; i < random_images.length; i++) {
             let image = random_images[i];
             if (i < 6) {
