@@ -67,7 +67,6 @@ $(document).ready(function () {
 						// if (data.invalid_email) {
 
 						// }
-						console.log('hello no email', x	data);
 						var invalidEmail = $('#contact-mail').data('error-invalid');
 						$('#contact-mail').parents('.controls').append('<span class="error-message" style="display:none;">' + invalidEmail + '.</span>').find('.error-message').fadeIn('fast');
 						$('#contact-mail').addClass('inputError');
