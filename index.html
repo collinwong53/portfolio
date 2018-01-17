@@ -58,8 +58,8 @@
 	<!-- ==============================================
 		MAIN NAV
 		=============================================== -->
-		<div id="main-nav" class="navbar navbar-fixed-top">
-			<div class="container">
+	<div id="main-nav" class="navbar navbar-fixed-top">
+		<div class="container">
 
 			<div class="navbar-header">
 
@@ -71,14 +71,14 @@
 
 				<!-- ======= LOGO ========-->
 				<a class="navbar-brand scrollto" href="#home">
-					<span class="logo-small">
-						<img src="../assets/logo-small.png" alt="" />
+					<span class="logo-small hidden-xs">
+						<img src="images/portfolio_icon.jpg" alt="" />
 					</span>
 					<!-- <span class="to-top">
 						<i class="fa fa-arrow-up"></i>
 					</span> -->
 
-					Collin Wong
+					<img id="portfolio_name" src="images/portfolio_name.png" alt="collin wong">
 
 				</a>
 
@@ -115,12 +115,13 @@
 	<!-- ==============================================
 		HEADER
 		=============================================== -->
-	<header id="home" class="jumbotron bg-image" style="background-image:url(assets/header-1.jpg)">
+	<header id="home" class="jumbotron bg-image" style="background-image:url(images/banner_background.png)">
 
 		<div class="container text-center">
 
-			<h1>Collin Wong</h1>
-			<p>Full-Stack Developer</p>
+			<!-- <h1>Collin Wong</h1>
+			<p>Full-Stack Developer</p> -->
+			<img id="banner" src="images/portfolio_title2.png" alt="">
 
 		</div>
 
@@ -131,9 +132,11 @@
 		=============================================== -->
 	<section id="about_me" class="white-bg padding-top-bottom">
 
-		<img id="self_image" src="" alt="" width="300px" height="300px">
+		<img class="mx-auto" src="images/portfolio_picture.jpg" alt="" height="300px">
 
-		<p>As a developer I love working with others to create new experiences for people. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint dolores esse a provident necessitatibus, maiores cupiditate tenetur obcaecati repellendus dolorum doloribus magni recusandae aliquid repellat minus nobis asperiores non architecto?</p>
+		<p>As a developer I love working with others to create new experiences for people. Lorem ipsum dolor sit amet, consectetur
+			adipisicing elit. Sint dolores esse a provident necessitatibus, maiores cupiditate tenetur obcaecati repellendus dolorum
+			doloribus magni recusandae aliquid repellat minus nobis asperiores non architecto?</p>
 	</section>
 	<!-- ==============================================
 		FEATURES
@@ -515,12 +518,17 @@
 				<ul class="social-links">
 					<li>
 						<a href="https://github.com/collinwong53" target="_blank">
-							<i class="fa fa-github fa-fw"></i>
+							<i class="fa fa-github fa-fw" aria-hidden="true"></i>
 						</a>
 					</li>
 					<li>
 						<a href="http://www.linkedin.com/in/collin-wong-dev" target="_blank">
-							<i class="fa fa-linkedin fa-fw"></i>
+							<i class="fa fa-linkedin fa-fw" aria-hidden="true"></i>
+						</a>
+					</li>
+					<li>
+						<a href="resume/Collin_Wong_Resume.pdf" target="_blank">
+							<i class="fa fa-file-text-o" aria-hidden="true"></i>
 						</a>
 					</li>
 				</ul>
