@@ -20,20 +20,6 @@
     opacity:0.8;
 	filter:alpha(opacity=80);
 }
-/* .icon_1_click{
-    opacity:0;
-    -webkit-transform:scale(0);
-    transform:scale(0);
-    -webkit-transition:all .3s ease-out 0s;
-    transition:all .3s ease-out 0s;
-}
-.icon_2_click{
-    opacity:1;
-    -webkit-transform:scale(1);
-    transform:scale(1);
-    -webkit-transition:all .3s ease-out .2s;
-    transition:all .3s ease-out .2s;
-} */
 .overlay-mask{
     color:white;
     font-size:25px;
@@ -60,8 +46,8 @@
     text-align:center;
 }
 .media-object{
-    font-size:40px;
+    font-size:55px;
 }
 .big_font{
-    font-size:50px;
+    font-size:80px;
 }
