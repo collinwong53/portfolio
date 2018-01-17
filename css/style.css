@@ -66,10 +66,12 @@
     margin: auto;
     display: block;
     border-radius: 100px;
-    position: relative;
-    bottom: 200px;
     z-index: 5;
     border: white 5px solid;
+}
+#about_me div, #about_me img, #about_me p{
+    bottom:200px;
+    position: relative;
 }
 img#banner {
     width: 60%;
@@ -78,8 +80,25 @@ img#banner_background {
     position: fixed;
     z-index: -1;
 }
+#about_me p {
+    width: 50%;
+    margin: auto;
+}
+
+section#about_me {
+    text-align: center;
+}
 @media screen and (max-width:762px){
     img#banner {
         width: 80%;
     }
+    #about_me p {
+        width: 75%;
+        margin: auto;
+    }
+    #about_me div, #about_me img, #about_me p{
+        bottom:150px;
+        position: relative;
+    }
+    
 }
