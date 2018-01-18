@@ -100,7 +100,7 @@ function Grab_data() {
             }
         };
         $.ajax({
-            url: 'https://collindev.com/pokeyproxy.php?name=' + pokemon,
+            url: 'https://collindev.com/pokey_proxy/pokeyproxy.php?name=' + pokemon,
             dataType: 'text',
             // url: 'https://pokemondb.net/pokedex/'+pokemon,
             success: function (data) {
