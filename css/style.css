@@ -98,12 +98,16 @@ img#banner {
     width: 60%;
 }
 
-img#banner_background {
+img.fixed_background {
     position: fixed;
     z-index: -1;
 }
+section#contact{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
-#about_me p, .section_description p {
+#about_me p, p.section-description {
     width: 500px;
     margin: auto;
     font-size: 18px;
@@ -145,7 +149,10 @@ div#meistertask_icon {
 }
 
 @media screen and (min-width:1800px) {
-    img#banner_background {
+    section#contact{
+        background-size:cover;
+    }
+    img#banner_background{
         width: 100%;
     }
 }
