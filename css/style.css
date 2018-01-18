@@ -76,6 +76,7 @@
     color: white;
     font-family: Lato, Arial, sans-serif;
     font-size: 18px;
+    padding-bottom: 25px;
 }
 
 #about_me img {
@@ -89,7 +90,7 @@
 #about_me div,
 #about_me img,
 #about_me p {
-    bottom: 200px;
+    bottom: 175px;
     position: relative;
 }
 
