@@ -100,7 +100,7 @@ function Grab_data() {
             }
         };
         $.ajax({
-            url: 'https://collindev.com/pokeyproxy.php?name=' + pokemon,
+            url: 'https://collindev.com/pokey_proxy/pokeyproxy.php?name=' + pokemon,
             dataType: 'text',
             success: function (data) {
                 var page = new DOMParser().parseFromString(data, 'text/html'); //grabs the table information from site
