@@ -103,7 +103,7 @@ img#banner_background {
     z-index: -1;
 }
 
-p {
+#about_me p, .section_description p {
     width: 500px;
     margin: auto;
     font-size: 18px;
@@ -128,7 +128,7 @@ div#meistertask_icon {
         z-index: -1;
         right: -20%;
     }
-    p {
+    #about_me p, .section_description p {
         width: 75%;
         margin: auto;
     }
