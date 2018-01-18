@@ -104,6 +104,10 @@ div#meistertask_icon {
         bottom:150px;
         position: relative;
     }
+    #about_me img{
+        width:200px;
+        height:200px;
+    }
 }
 @media screen and (min-width:1800px){
     img#banner_background {
