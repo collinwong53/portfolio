@@ -105,6 +105,7 @@ img.fixed_background {
 section#contact{
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin-top:100px;+
 }
 
 #about_me p, p.section-description {
