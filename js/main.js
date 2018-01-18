@@ -9,4 +9,5 @@ function apply_click_handlers() {
         $(this).find('.icon-1').toggleClass('.icon_1_click');
         $(this).find('.icon-2').toggleClass('.icon_2_click');
     })
+    $('.scrollto').click(function(){$('body').scrollTo($(this).attr('href'),{duration:500,offset:-300});});
 }

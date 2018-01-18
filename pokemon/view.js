@@ -279,7 +279,7 @@ function get_youtube_data(pokemon_name) {
     };
 
     $.ajax({
-        url: 'http://s-apis.learningfuze.com/hackathon/youtube/search.php',
+        url: 'https://s-apis.learningfuze.com/hackathon/youtube/search.php',
         dataType: 'json',
         method: 'post',
         data: {
