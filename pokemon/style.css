@@ -260,32 +260,16 @@ body {
     background-color: rgba(0, 0, 0, 0.8)
 }
 #toggle_view{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    font-size: 40px;
+    color: aliceblue;
     position: absolute;
-    width: 12%;
-    height: 8%;
     top: 70%;
     left: 50%;
-    font-size: 2em;
-    line-height: 20%;
-    color: #345da4;
-    border: 6px solid #345da4;
-    -webkit-box-sizing: content-box;
-            box-sizing: content-box;
-    background-color: #fcc31d;
-    border-radius: 25px;
-    cursor: pointer;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 #start_button {
     display: -webkit-box;

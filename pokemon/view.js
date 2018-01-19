@@ -5,6 +5,7 @@ function View() {
      * @returns {undefined} none
      * @calls {undefined} none
      */
+    const self = this;
     this.desktop = true;
     this.displayCards = function () {
         // var back_image1 = $('<div>').addClass('back').css('background-image', "url('images/card_back.png')");
@@ -12,8 +13,8 @@ function View() {
         var card_back = "images/cardback.png";
         var back_image1 = $('<div>').addClass('back').prepend('<img src="'+card_back+'">');
         var back_image2 = $('<div>').addClass('back').prepend('<img src="'+card_back+'">');
-        var player0BackgroundImage = game_model.players[0].pokemon.image;
-        var player1BackgroundImage = game_model.players[1].pokemon.image;
+        var player0BackgroundImage = gameModel.players[0].pokemon.image;
+        var player1BackgroundImage = gameModel.players[1].pokemon.image;
         var player_0_front = $('<div>').addClass('front').prepend('<img src=' + "'" + player0BackgroundImage + "'" + '/>');
         var player_1_front = $('<div>').addClass('front').prepend('<img src=' + "'" + player1BackgroundImage + "'" + '/>');
         var player_0_card = $('<div>').addClass('card').append(player_0_front, back_image1);
@@ -57,23 +58,23 @@ function View() {
 
     /***************************************************************************************************
      * hideArrowForMoment - hide the arrow
-     * @param  player_model
+     * @param  playerModel
      * @returns {undefined} none
      * @calls {undefined} none
      */
-    this.hideArrowForMoment = function (player_model) {
-        var divID = "#player_" + player_model.index + "_key_display";
+    this.hideArrowForMoment = function (playerModel) {
+        var divID = "#player_" + playerModel.index + "_key_display";
         $(divID).css("background-image", "none");
     };
 
     /***************************************************************************************************
      * arrowBoxMadeMove - highlights box green if the play was correct
-     * @param  player_model
+     * @param  playerModel
      * @returns {undefined} none
      * @calls {undefined} none
      */
-    this.arrowBoxMadeMove = function (player_model) {
-        var divID = "#player_" + player_model.index + "_key_display";
+    this.arrowBoxMadeMove = function (playerModel) {
+        var divID = "#player_" + playerModel.index + "_key_display";
         $(divID).css("border", "5px solid green").css("box-sizing", "border-box");
         setTimeout(function () {
             $(divID).css("border", "none");
@@ -82,12 +83,12 @@ function View() {
 
     /***************************************************************************************************
      * arrowBoxMissMove - highlights box red if the player misses the play
-     * @param  player_model
+     * @param  playerModel
      * @returns {undefined} none
      * @calls {undefined} none
      */
-    this.arrowBoxMissMove = function (player_model) {
-        var divID = "#player_" + player_model.index + "_key_display";
+    this.arrowBoxMissMove = function (playerModel) {
+        var divID = "#player_" + playerModel.index + "_key_display";
         $(divID).css("border", "5px solid red").css("box-sizing", "border-box");
         setTimeout(function () {
             $(divID).css("border", "none");
@@ -116,10 +117,10 @@ function View() {
      * @calls {undefined} none
      */
     this.updateBarCounter = function () {
-        $('#hp_0').text(game_model.players[0].hp + "/" + game_model.players[0].pokemon.hp);
-        $('#hp_1').text(game_model.players[1].hp + "/" + game_model.players[1].pokemon.hp);
-        $('#power_0').text(game_model.players[0].completedMoves + "/" + game_model.players[0].completedMovesGoal);
-        $('#power_1').text(game_model.players[1].completedMoves + "/" + game_model.players[1].completedMovesGoal);
+        $('#hp_0').text(gameModel.players[0].hp + "/" + gameModel.players[0].pokemon.hp);
+        $('#hp_1').text(gameModel.players[1].hp + "/" + gameModel.players[1].pokemon.hp);
+        $('#power_0').text(gameModel.players[0].completedMoves + "/" + gameModel.players[0].completedMovesGoal);
+        $('#power_1').text(gameModel.players[1].completedMoves + "/" + gameModel.players[1].completedMovesGoal);
     };
 
     /***************************************************************************************************
@@ -129,10 +130,10 @@ function View() {
      * @calls {undefined} none
      */
     this.updateBars = function () {
-        var player0HPpercentage = game_model.players[0].hp / game_model.players[0].pokemon.hp;
-        var player1HPpercentage = game_model.players[1].hp / game_model.players[1].pokemon.hp;
-        var player0Powerpercentage = game_model.players[0].completedMoves / game_model.players[0].completedMovesGoal;
-        var player1Powerpercentage = game_model.players[1].completedMoves / game_model.players[1].completedMovesGoal;
+        var player0HPpercentage = gameModel.players[0].hp / gameModel.players[0].pokemon.hp;
+        var player1HPpercentage = gameModel.players[1].hp / gameModel.players[1].pokemon.hp;
+        var player0Powerpercentage = gameModel.players[0].completedMoves / gameModel.players[0].completedMovesGoal;
+        var player1Powerpercentage = gameModel.players[1].completedMoves / gameModel.players[1].completedMovesGoal;
         $("#player_0_health_bar").css("width", (player0HPpercentage * 100 + "%"));
         $("#player_1_health_bar").css("width", (player1HPpercentage * 100 + "%"));
         $("#player_0_power_bar").css("width", (player0Powerpercentage * 100 + "%"));
@@ -141,14 +142,14 @@ function View() {
 
     /***************************************************************************************************
      * displayPlayerName - shows the player name and the pokemon name
-     * @param  player_model
+     * @param  playerModel
      * @returns {undefined} none
      * @calls {undefined} none
      */
-    this.displayPlayerName = function (player_model) {
-        var playerNumber = player_model.index + 1;
-        var pokemonName = player_model.pokemon.name;
-        if (player_model.index === 0) {
+    this.displayPlayerName = function (playerModel) {
+        var playerNumber = playerModel.index + 1;
+        var pokemonName = playerModel.pokemon.name;
+        if (playerModel.index === 0) {
             $("#player_0_name").text("Player " + playerNumber + ": " + pokemonName);
         } else {
             $("#player_1_name").text("Player " + playerNumber + ": " + pokemonName);
@@ -207,8 +208,15 @@ function View() {
         } else {
             $("#player_1_icon_image").attr("src", playerIconArray[randomIndex]);
         }
-    }
-    this.tablet_switch = function () {
+    };
+
+    /***************************************************************************************************
+     * tabletSwitch - changes into tablet mode for game
+     * @param  {undefined} none
+     * @returns {undefined} none
+     * @calls {undefined} none
+     */
+    this.tabletSwitch = function () {
         $('.arrows_tablet_container').css('display', 'flex');
         $('.player_key_display, .player_stats, .player_icon').css('display', 'none');
         $('.top_player_container').addClass('tablet_player_container');
@@ -216,10 +224,19 @@ function View() {
         $('.player_hpAndPower').addClass('tablet_player_hp_and_pp');
         $('.player_box').addClass('tablet_player_box');
         $('.top_container').attr('id', 'tablet_top_container');
-        $('.bottom_container').attr('id', 'tablet_bottom_container')
+        $('.bottom_container').attr('id', 'tablet_bottom_container');
+        $('#tablet_icon').removeClass('hidden');
+        $('#keyboard_icon').addClass('hidden');
         this.desktop = false;
-    }
-    this.desktop_switch = function(){
+    };
+
+    /***************************************************************************************************
+     * desktopSwitch - changes into desktop mode for game
+     * @param  {undefined} none
+     * @returns {undefined} none
+     * @calls {undefined} none
+     */
+    this.desktopSwitch = function(){
         $('.arrows_tablet_container').css('display', 'none');
         $('.player_key_display, .player_stats, .player_icon').css('display', 'block');
         $('.top_player_container').removeClass('tablet_player_container');
@@ -227,38 +244,65 @@ function View() {
         $('.player_hpAndPower').removeClass('tablet_player_hp_and_pp');
         $('.player_box').removeClass('tablet_player_box');
         $('.top_container').removeAttr('id');
-        $('.bottom_container').removeAttr('id')
-    }
-    this.apply_click_handlers = function(){
+        $('.bottom_container').removeAttr('id');
+        $('#tablet_icon').addClass('hidden');
+        $('#keyboard_icon').removeClass('hidden');
+    };
+
+    /***************************************************************************************************
+     * ApplyClickHandlers - apply click handlers from view object
+     * @param  {undefined} none
+     * @returns {undefined} none
+     * @calls {undefined} none
+     */
+
+    this.applyClickHandlers = function(){
         $("#start_button").on('click', function () {
-            if (available_cards === null) {
+            if (availableCards === null) {
                 return
             }
-            game_controller.startTimer(3000, true);
+            gameController.startTimer(3000, true);
             $("#start_button").hide();
         });
-        $('#touch_switch').click(this.tablet_switch);
-        $('.close_modal_butt').click(this.close_youtube)
-        $('#winner_modal').on('hidden.bs.modal', this.close_youtube);
-        $('.tablet_arrows').click(game_controller.tablet_arrows);
-        $('#toggle_view').click(this.toggle_view);
-    }
-    this.close_youtube = function(){
+        $('#touch_switch').click(this.tabletSwitch);
+        $('.close_modal_butt').click(this.closeYoutube);
+        $('#winner_modal').on('hidden.bs.modal', this.closeYoutube);
+        $('.tablet_arrows').click(gameController.tabletArrows);
+        $('#toggle_view').click(this.toggleView);
+    };
+
+    /***************************************************************************************************
+     * closeYoutube- closes youtube video
+     * @param  {undefined} none
+     * @returns {undefined} none
+     * @calls {undefined} none
+     */
+
+    this.closeYoutube = function(){
         $("#video_display").removeAttr('src');
-    }
-    this.remove_tablet_hightlights = function(){
+    };
+
+    /***************************************************************************************************
+ * removeTabletHighLights - remove arrow and container borders from tablet arrows
+ * @param  {undefined} none
+ * @returns {undefined} none
+ * @calls View.tabletSwitch, View.desktopSwitch
+ */
+
+    this.removeTabletHighlights = function(){
         $('.arrows_tablet_container').removeClass('tablet_right_move tablet_wrong_move');
-        $('.tablet_arrows').css('background','none');  
-    }
-    this.toggle_view = function(){
-        if(view.desktop){
-            view.tablet_switch();
+        $('.tablet_arrows').css('background','none');
+    };
+
+    this.toggleView = function(){
+        if(self.desktop){
+            self.tabletSwitch();
         }else{
-            view.desktop_switch();
-            view.desktop = true;
+            self.desktopSwitch();
+            self.desktop = true;
         }
     }
-};
+}
 
 /***************************************************************************************************
  * displayWinVideo - shows a video of the winning pokemon
@@ -271,27 +315,28 @@ function displayWinVideo(winnerPlayerModel) {
 
     this.displayVideo = function () {
         $(".modal-title").text("Player " + parseInt(winnerPlayerModel.index + 1) + " Wins!"); // The text will be the name of the pokemon
-        $("#video_display").attr('src', winner_video_link);
+        $("#video_display").attr('src', winnerVideoLink);
         $("#winner_modal").modal('show');
-        view.remove_tablet_hightlights();  
+        view.removeTabletHighlights();
     };
     this.displayVideo();
-};
+}
 
 
-function close_youtube() {
+
+function closeYoutube() {
     $("#video_display").removeAttr('src');
 }
 
 /***************************************************************************************************
  * grab youtube api - gets the information from the youtube api
- * @param  {pokemon_name} name of winner player model's pokemon
- * @calls winner_video();
- *        failed_video();
+ * @param  {pokemonName} name of winner player model's pokemon
+ * @calls winnerVideo();
+ *        failedVideo();
  */
 
 
-function get_youtube_data(pokemon_name) {
+function getYoutubeData(pokemonName) {
     var promise = { //create an object that will handle the promise itself
         then: function (resolve, reject) {
             this.reject = reject;
@@ -304,7 +349,7 @@ function get_youtube_data(pokemon_name) {
         dataType: 'json',
         method: 'post',
         data: {
-            q: pokemon_name,
+            q: pokemonName,
             maxResults: 10,
             type: "video"
         },
@@ -316,25 +361,25 @@ function get_youtube_data(pokemon_name) {
         }
     });
     return promise;
-};
+}
 /***************************************************************************************************
  * winner pokemon video
  * @param  {data} pokemon youtube video list from api
  * @calls displayWinVideo(winnerPlayerModel);
  */
 
-function winner_video(data) {
-    video_list = data;
-    var random_vid = video_list.video[Math.floor(Math.random() * video_list.video.length)].id;
-    winner_video_link = "https://www.youtube.com/embed/" + random_vid;
+function winnerVideo(data) {
+    videoList = data;
+    var randomVid = videoList.video[Math.floor(Math.random() * videoList.video.length)].id;
+    winnerVideoLink = "https://www.youtube.com/embed/" + randomVid;
     displayWinVideo(winnerPlayerModel);
-};
+}
 /***************************************************************************************************
  * failed to grab youtube video list from api
  */
 
-function failed_video(message) {
+function failedVideo(message) {
     $(".modal-title").text("Player " + parseInt(winnerPlayerModel.index + 1) + " Wins!"); // The text will be the name of the pokemon
     $("#video_display").text(message);
     $("#winner_modal").modal('show');
-};
+}
