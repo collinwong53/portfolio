@@ -1315,7 +1315,7 @@ a:focus,
 
 .project-item {
     position:relative;
-	margin-bottom:30px;
+	margin-bottom:100px;
 	-webkit-transform:scale(1);
 	transform:scale(1);
 	opacity:1;
@@ -1349,7 +1349,7 @@ a:focus,
     display:block;
     position:relative;
     box-shadow:0 2px 5px rgba(0,0,0,0.08);
-    overflow:hidden;
+    /* overflow:hidden; */
 }
 
 .scrollimation .project-thumb {
@@ -1462,7 +1462,7 @@ a:focus,
     display:block;
     width:100%;
     position:absolute;
-    bottom:-100px;
+    bottom:-64px;
     background:#fff;
     margin:0;
     padding:20px 0;
@@ -1475,11 +1475,11 @@ a:focus,
     transition:bottom .4s ease-out,color .2s ease-out;
 }
 
-.project-thumb:hover .project-title {
+/* .project-thumb:hover .project-title {
     bottom:0;
     -webkit-transition:bottom .3s ease-out .1s,color .2s ease-out 0s;
     transition:bottom .3s ease-out .1s,color .2s ease-out 0s;
-}
+} */
 
 .project-thumb .project-title:hover {
     color:#5CC9DF;

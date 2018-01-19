@@ -31,7 +31,7 @@
     font-size: 25px;
     font-weight: bold;
     text-align: center;
-    line-height: 200px;
+    line-height: 250px;
     text-shadow: 2px 2px gray;
 }
 
@@ -40,7 +40,8 @@
 }
 
 .social-links {
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #self_image {
@@ -77,6 +78,7 @@
     font-family: Lato, Arial, sans-serif;
     font-size: 18px;
     padding-bottom: 25px;
+    margin-bottom: -125px;
 }
 
 #about_me img {
@@ -106,6 +108,7 @@ section#contact{
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin-top:100px;
+    background-size:cover;
 }
 
 #about_me p, p.section-description {
