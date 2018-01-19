@@ -5,7 +5,7 @@
  * @calls {undefined} none
  */
 
-function Player_model() {
+function PlayerModel() {
     this.index = null;
     this.wins = 0;
     this.pokemon = {};
