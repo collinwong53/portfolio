@@ -268,7 +268,8 @@ function View() {
         $('.close_modal_butt').click(this.closeYoutube);
         $('#winner_modal').on('hidden.bs.modal', this.closeYoutube);
         $('.tablet_arrows').click(gameController.tabletArrows);
-        $('#toggle_view').click(this.toggleView);
+        $('#tablet_icon, #keyboard_icon').click(this.toggleView);
+        $('#info').click(this.showInstructions);
     };
 
     /***************************************************************************************************
@@ -301,6 +302,9 @@ function View() {
             self.desktopSwitch();
             self.desktop = true;
         }
+    }
+    this.showInstructions = function(){
+        $("#instructions").modal('show');
     }
 }
 
