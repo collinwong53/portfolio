@@ -29,6 +29,7 @@ body {
     position: relative;
     min-width: 1000px;
     min-height: 700px;
+    overflow: hidden;
 }
 
 .main {
@@ -51,9 +52,10 @@ body {
 }
 
 #portrait_orientation_cover {
-    /*position: relative;*/
-    /*height: 100%;*/
-    /*width: 100%;*/
+    display: none;
+}
+
+#portrait_orientation_cover_xs {
     display: none;
 }
 
@@ -257,7 +259,34 @@ body {
 .container {
     background-color: rgba(0, 0, 0, 0.8)
 }
-
+#toggle_view{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    width: 12%;
+    height: 8%;
+    top: 70%;
+    left: 50%;
+    font-size: 2em;
+    line-height: 20%;
+    color: #345da4;
+    border: 6px solid #345da4;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    background-color: #fcc31d;
+    border-radius: 25px;
+    cursor: pointer;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+}
 #start_button {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -665,7 +694,7 @@ div.player_box.tablet_player_box {
 }
 @media only screen and (min-width: 1120px) and (min-height:850px){
     .player_box{
-        width:80%;
+        width:70%;
     }
 }
 @media only screen and (min-width: 1300px) {
@@ -678,7 +707,7 @@ div.player_box.tablet_player_box {
 }
 @media only screen and (min-width: 1300px) and (min-height:850px){
     .player_box {
-        width: 75%;
+        width: 70%;
     }
 }
 @media only screen and (min-width: 1350px) and (min-height:950px) {
@@ -697,9 +726,6 @@ div.player_box.tablet_player_box {
     body {
         min-height: 750px;
     }
-    /*     .player_key_display {
-        position: relative;
-    } */
     .player_box {
         width: 55%;
     }
@@ -715,7 +741,7 @@ div.player_box.tablet_player_box {
 }
 @media only screen and (min-width: 1420px) and (min-height:900px){
     .player_box {
-        width: 70%;
+        width: 65%;
     }
 }
 
@@ -754,7 +780,7 @@ div.player_box.tablet_player_box {
 
 @media only screen and (min-width: 1700px) and (min-height: 950px){
     .player_box{
-        width:65%;
+        width:60%;
     }
 }
 
@@ -771,7 +797,7 @@ div.player_box.tablet_player_box {
 }
 @media only screen and (min-width: 1820px) and (min-height: 950px){
     .player_box{
-        width:60%;
+        width:56%;
     }
 }
 @media only screen and (min-width: 2000px) {
@@ -786,16 +812,17 @@ div.player_box.tablet_player_box {
     }
 }
 
-@media screen and (orientation: portrait) {
+/* For tablets in portrait mode*/
+@media only screen and (orientation: portrait) and (min-width: 426px){
     #instructions {
         z-index: -5;
     }
-    #portrait_orientation_cover {
+    #portrait_orientation_cover{
         position: absolute;
-        height: 100%;
-        width: 100%;
+        height: 100vh;
+        width: 100vw;
         display: block;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.8);
         z-index: 6;
         color: white;
         font-size: 300%;
@@ -804,5 +831,51 @@ div.player_box.tablet_player_box {
         margin: 10%;
         top: 30vh;
         position: relative;
+        text-align: center
     }
 }
+
+/* For phones in portrait mode*/
+@media only screen and (orientation: portrait) and (max-width: 425px){
+    #instructions {
+        z-index: -5;
+    }
+    #portrait_orientation_cover_xs {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 6;
+        color: white;
+        font-size: 8vw;
+    }
+    #portrait_orientation_cover_xs p {
+        margin: 10%;
+        position: relative;
+        text-align: center
+    }
+}
+
+/* For phones in landscape mode*/
+@media only screen and (orientation: landscape) and  (min-width:320px) and (max-width:767px){
+    #instructions {
+        z-index: -5;
+    }
+    #portrait_orientation_cover_xs {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        display: block;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 6;
+        color: white;
+        font-size: 5vw;
+    }
+    #portrait_orientation_cover_xs p {
+        margin: 10%;
+        position: relative;
+        text-align: center
+    }
+}
+
