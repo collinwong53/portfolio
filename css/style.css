@@ -110,6 +110,16 @@ section#contact{
     margin-top:100px;
     background-size:cover;
 }
+#contact .section-title {
+    color: white;
+    text-shadow: 2px 2px #7a7c7f;
+}
+
+#contact p.section-description {
+    color: white;
+    text-shadow: 1px 1px #7a7c7f;
+    width: 65%;
+}
 
 #about_me p, p.section-description {
     width: 70%;
@@ -139,6 +149,9 @@ div#meistertask_icon {
     #about_me p, .section_description p {
         width: 75%;
         margin: auto;
+    }
+    #contact p.section-description {
+        width:85%;
     }
     #about_me div,
     #about_me img,
