@@ -52,7 +52,7 @@ function Game_controller() {
         }
         audio_handler.play_sound('countdown');
         game_model.timerValue = time;
-        view.remove_tablet_hightlights();
+        view.remove_tablet_highlights();
         var timeBetweenUpdates = 1000;
         game_model.timerInterval = setInterval(function () {
             game_model.timerValue = game_model.timerValue - timeBetweenUpdates;
@@ -83,7 +83,7 @@ function Game_controller() {
         if (startOfGame) {
             get_card_api_data.get_pokemonDB(game_model.players[0].pokemon.name, '#player_0_stats').then(get_card_api_data.resolve_pokeDB, get_card_api_data.reject_pokeDB);
             get_card_api_data.get_pokemonDB(game_model.players[1].pokemon.name, '#player_1_stats').then(get_card_api_data.resolve_pokeDB, get_card_api_data.reject_pokeDB);
-            view.remove_tablet_hightlights();
+            view.remove_tablet_highlights();
             audio_handler.play_main();
             audio_handler.stop_victory_music();
             audio_handler.victory_phase = false;

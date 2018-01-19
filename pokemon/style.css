@@ -259,7 +259,18 @@ body {
 .container {
     background-color: rgba(0, 0, 0, 0.8)
 }
-
+#toggle_view{
+    font-size: 40px;
+    color: aliceblue;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
 #start_button {
     display: -webkit-box;
     display: -ms-flexbox;

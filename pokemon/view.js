@@ -5,6 +5,8 @@ function View() {
      * @returns {undefined} none
      * @calls {undefined} none
      */
+    const self = this;
+    this.desktop = true;
     this.displayCards = function () {
         // var back_image1 = $('<div>').addClass('back').css('background-image', "url('images/card_back.png')");
         // var back_image2 = $('<div>').addClass('back').css('background-image', "url('images/card_back.png')");
@@ -207,6 +209,13 @@ function View() {
             $("#player_1_icon_image").attr("src", playerIconArray[randomIndex]);
         }
     }
+
+    /***************************************************************************************************
+ * tabletSwitch - changes into tablet mode for game
+ * @param  {undefined} none
+ * @returns {undefined} none
+ * @calls {undefined} none
+ */
     this.tablet_switch = function () {
         $('.arrows_tablet_container').css('display', 'flex');
         $('.player_key_display, .player_stats, .player_icon').css('display', 'none');
@@ -215,8 +224,18 @@ function View() {
         $('.player_hpAndPower').addClass('tablet_player_hp_and_pp');
         $('.player_box').addClass('tablet_player_box');
         $('.top_container').attr('id', 'tablet_top_container');
-        $('.bottom_container').attr('id', 'tablet_bottom_container')
+        $('.bottom_container').attr('id', 'tablet_bottom_container');
+        $('#tablet_icon').removeClass('hidden');
+        $('#keyboard_icon').addClass('hidden');
+        this.desktop = false;
     }
+
+    /***************************************************************************************************
+ * desktopSwitch - changes into desktop mode for game
+ * @param  {undefined} none
+ * @returns {undefined} none
+ * @calls {undefined} none
+ */
     this.desktop_switch = function(){
         $('.arrows_tablet_container').css('display', 'none');
         $('.player_key_display, .player_stats, .player_icon').css('display', 'block');
@@ -225,8 +244,18 @@ function View() {
         $('.player_hpAndPower').removeClass('tablet_player_hp_and_pp');
         $('.player_box').removeClass('tablet_player_box');
         $('.top_container').removeAttr('id');
-        $('.bottom_container').removeAttr('id')
+        $('.bottom_container').removeAttr('id');
+        $('#tablet_icon').addClass('hidden');
+        $('#keyboard_icon').removeClass('hidden');
     }
+
+/***************************************************************************************************
+ * ApplyClickHandlers - apply click handlers from view object
+ * @param  {undefined} none
+ * @returns {undefined} none
+ * @calls {undefined} none
+ */
+
     this.apply_click_handlers = function(){
         $("#start_button").on('click', function () {
             if (available_cards === null) {
@@ -239,13 +268,38 @@ function View() {
         $('.close_modal_butt').click(this.close_youtube)
         $('#winner_modal').on('hidden.bs.modal', this.close_youtube);
         $('.tablet_arrows').click(game_controller.tablet_arrows);
+        $('#toggle_view').click(this.toggle_view);
     }
+
+    /***************************************************************************************************
+ * closeYoutube- closes youtube video
+ * @param  {undefined} none
+ * @returns {undefined} none
+ * @calls {undefined} none
+ */
+
     this.close_youtube = function(){
         $("#video_display").removeAttr('src');
     }
-    this.remove_tablet_hightlights = function(){
+
+    /***************************************************************************************************
+ * removeTabletHighLights - remove arrow and container borders from tablet arrows
+ * @param  {undefined} none
+ * @returns {undefined} none
+ * @calls View.tabletSwitch, View.desktopSwitch
+ */
+
+    this.remove_tablet_highlights = function(){
         $('.arrows_tablet_container').removeClass('tablet_right_move tablet_wrong_move');
         $('.tablet_arrows').css('background','none');  
+    }
+    this.toggle_view = function(){
+        if(self.desktop){
+            self.tablet_switch();
+        }else{
+            self.desktop_switch();
+            self.desktop = true;
+        }
     }
 };
 
@@ -262,15 +316,11 @@ function displayWinVideo(winnerPlayerModel) {
         $(".modal-title").text("Player " + parseInt(winnerPlayerModel.index + 1) + " Wins!"); // The text will be the name of the pokemon
         $("#video_display").attr('src', winner_video_link);
         $("#winner_modal").modal('show');
-        view.remove_tablet_hightlights();  
+        view.remove_tablet_highlights();  
     };
     this.displayVideo();
 };
 
-
-function close_youtube() {
-    $("#video_display").removeAttr('src');
-}
 
 /***************************************************************************************************
  * grab youtube api - gets the information from the youtube api
