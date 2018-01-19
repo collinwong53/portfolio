@@ -109,7 +109,7 @@ section#contact{
 }
 
 #about_me p, p.section-description {
-    width: 750px;
+    width: 70%;
     margin: auto;
     font-size: 18px;
 }
