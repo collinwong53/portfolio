@@ -217,6 +217,16 @@ function View() {
         $('.top_container').attr('id', 'tablet_top_container');
         $('.bottom_container').attr('id', 'tablet_bottom_container')
     }
+    this.desktop_switch = function(){
+        $('.arrows_tablet_container').css('display', 'none');
+        $('.player_key_display, .player_stats, .player_icon').css('display', 'block');
+        $('.top_player_container').removeClass('tablet_player_container');
+        $('.main').removeAttr('id');
+        $('.player_hpAndPower').removeClass('tablet_player_hp_and_pp');
+        $('.player_box').removeClass('tablet_player_box');
+        $('.top_container').removeAttr('id');
+        $('.bottom_container').removeAttr('id')
+    }
     this.apply_click_handlers = function(){
         $("#start_button").on('click', function () {
             if (available_cards === null) {
