@@ -270,6 +270,7 @@ function View() {
         $('.tablet_arrows').click(gameController.tabletArrows);
         $('#tablet_icon, #keyboard_icon').click(this.toggleView);
         $('#info').click(this.showInstructions);
+        $('#keyboard_switch').click(this.desktopSwitch);
     };
 
     /***************************************************************************************************
