@@ -661,7 +661,7 @@ div.player_box.tablet_player_box {
 
 @media only screen and (min-width: 1120px) {
     div.player_box.tablet_player_box {
-        width: 70%;
+        width: 65%;
     }
     .player_hpAndPower {
         font-size: 11px;
@@ -687,6 +687,9 @@ div.player_box.tablet_player_box {
     }
     .player_hpAndPower {
         font-size: 12px;
+    }
+    .player_key_display{
+        width:23%;
     }
 }
 @media only screen and (min-width: 1300px) and (min-height:850px){
