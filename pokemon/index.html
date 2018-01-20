@@ -23,10 +23,10 @@
 
 <body>
     <div id="portrait_orientation_cover">
-        <p>It looks like you are viewing this game in portrait mode. Please switch to landscape for a better experience.</p>
+        <p>It looks like you are viewing this game in portrait mode. This game is meant to be played in landscape. Please switch.</p>
     </div>
     <div id="portrait_orientation_cover_xs">
-        <p>It looks like you are viewing this on a small device. Please switch to a larger device such as a tablet or computer for a better experience.</p>
+        <p>It looks like you are viewing this on a small device. This game is meant for larger devices like a tablet or desktop.</p>
     </div>
     <!-- ******************* 
 **** Tablet Player 0 Arrows*******
@@ -46,57 +46,24 @@
         </div>
     </div>
     <div class="main">
-        <div class="top_container">
-
-            <!-- ******************************* 
+        <div class="player_stats container style_scrollbar force-overflow" id="player_0_stats">
+            <img src="images/International_Pokémon_logo.svg.png">
+        </div>
+        <!-- ******************************* 
          player one (name,card,stats,key)*******
         ************************************ -->
+        <div class="top_player_container">
 
-            <div class="player_stats container style_scrollbar force-overflow" id="player_0_stats">
-                <img src="images/International_Pokémon_logo.svg.png">
-            </div>
+            <div id="player_0_name" class="player_name container"></div>
 
-            <div class="top_player_container">
+            <div class="player_box" id="player_0"></div>
 
-                <div id="player_0_name" class="player_name container"></div>
+            <div class="player_key_display container" id="player_0_key_display"></div>
 
-                <div class="player_box" id="player_0"></div>
-
-                <div class="player_key_display container" id="player_0_key_display"></div>
-
-            </div>
             <!-- ******************* 
          player two (name,stats,card,key)****************
         **************** -->
 
-            <div class="top_player_container">
-
-                <div id="player_1_name" class="player_name container"></div>
-
-                <div class="player_box" id="player_1"></div>
-
-                <div class="player_key_display container"  id="player_1_key_display"></div>
-
-            </div>
-
-            <div class="player_stats container style_scrollbar force-overflow" id="player_1_stats">
-                <img src="images/International_Pokémon_logo.svg.png">
-            </div>
-
-
-        </div>
-        <!-- end of top container -->
-
-        <!-- ******************* 
-         bottom container****************
-        **************** -->
-        <div class="bottom_container">
-            <!-- ******************* 
-         player one (icon, health, and power)*************
-        **************** -->
-            <div class="player_icon" id="player_0_icon">
-                <img id="player_0_icon_image" src="">
-            </div>
             <div class="player_hpAndPower container" id="player_0_hpAndPower">
                 <div class="hp" id="player_0_hp">
                     <div class="hpAndPowerTextDiv">HP</div>
@@ -113,6 +80,22 @@
                     <div class="powerDetails" id="power_0"></div>
                 </div>
             </div>
+
+        </div>
+        <!-- end player 1 container -->
+
+
+        <!-- ******************* 
+         player two (name,stats,card,key)****************
+        **************** -->
+
+        <div class="top_player_container">
+
+            <div id="player_1_name" class="player_name container"></div>
+
+            <div class="player_box" id="player_1"></div>
+
+            <div class="player_key_display container" id="player_1_key_display"></div>
 
             <!-- ******************* 
          player two (icon, health, and power)*************
@@ -134,9 +117,12 @@
                     <div class="powerDetails" id="power_1"></div>
                 </div>
             </div>
-            <div class="player_icon" id="player_1_icon">
-                <img id="player_1_icon_image" src="">
-            </div>
+
+        </div>
+        <!-- end player 2 container -->
+
+        <div class="player_stats container style_scrollbar force-overflow" id="player_1_stats">
+            <img src="images/International_Pokémon_logo.svg.png">
         </div>
     </div>
     <!-- ******************* 
@@ -229,7 +215,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" id="touch_switch" data-dismiss="modal">Touch Screen</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Keyboard</button>
+                    <button type="button" class="btn btn-default" id="keyboard_switch" data-dismiss="modal">Keyboard</button>
                 </div>
             </div>
         </div>
