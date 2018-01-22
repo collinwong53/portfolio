@@ -84,8 +84,8 @@ function GameController() {
      */
     this.startRound = function (startOfGame) {
         if (startOfGame) {
-            getCardApiData.getPokemonDB(gameModel.players[0].pokemon.name, '#player_0_stats').then(getCardApiData.resolvePokeDB, getCardApiData.rejectPokeDB);
-            getCardApiData.getPokemonDB(gameModel.players[1].pokemon.name, '#player_1_stats').then(getCardApiData.resolvePokeDB, getCardApiData.rejectPokeDB);
+            apiData.getPokemonDB(gameModel.players[0].pokemon.name, '#player_0_stats').then(apiData.resolvePokeDB, apiData.rejectPokeDB);
+            apiData.getPokemonDB(gameModel.players[1].pokemon.name, '#player_1_stats').then(apiData.resolvePokeDB, apiData.rejectPokeDB);
             view.removeTabletHighlights();
             audioHandler.playMain();
             audioHandler.stopVictoryMusic();
@@ -108,24 +108,16 @@ function GameController() {
             if (gameModel.players[0].availableKeys.indexOf(keyPress) !== -1) { //player 1 keys
                 if (gameModel.players[0].requiredMove === keyPress) {
                     playerController.completeMove(gameModel.players[0]);
-                    $('.player_0_arrows').addClass('tablet_right_move');
-                    $('.player_0_arrows').removeClass('tablet_wrong_move');
                 } else {
                     playerController.missMove(gameModel.players[0]);
-                    $('.player_0_arrows').addClass('tablet_wrong_move');
-                    $('.player_0_arrows').removeClass('tablet_right_move');
                 }
                 $('.player_0_arrows').find('.tablet_arrows').css('background', 'none');
 
             } else if (gameModel.players[1].availableKeys.indexOf(keyPress) !== -1) { //player 2 keys
                 if (gameModel.players[1].requiredMove === keyPress) {
                     playerController.completeMove(gameModel.players[1]);
-                    $('.player_1_arrows').addClass('tablet_right_move');
-                    $('.player_1_arrows').removeClass('tablet_wrong_move');
                 } else {
                     playerController.missMove(gameModel.players[1]);
-                    $('.player_1_arrows').addClass('tablet_wrong_move');
-                    $('.player_0_arrows').removeClass('tablet_right_move');
                 }
                 $('.player_1_arrows').find('.tablet_arrows').css('background', 'none');
             }

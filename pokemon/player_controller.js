@@ -6,7 +6,7 @@ function PlayerController() {
      * @returns {undefined} none
      */
     this.getPokemon = function (playerModel) {
-        playerModel.pokemon = getCardApiData.makePokemon();
+        playerModel.pokemon = apiData.makePokemon();
         playerModel.hp = playerModel.pokemon.hp;
         playerModel.attack = playerModel.pokemon.attack;
         playerModel.completedMovesGoal = Math.floor((parseInt(playerModel.hp) + parseInt(playerModel.attack)) / 20);
@@ -21,25 +21,7 @@ function PlayerController() {
     this.takeDamage = function (playerModel, damageAmount) {
         playerModel.hp -= damageAmount;
         audioHandler.playSound('attack01');
-        if (playerModel.index === 0) {
-            $('#player_0').addClass('got_hit');
-            setTimeout(function () {
-                $('#player_0').removeClass('got_hit');
-            }, 2000);
-            $("#attackText0").text("-" + gameModel.players[1].attack).show();
-            setTimeout(function () {
-                $("#attackText0").hide();
-            }, 750)
-        } else {
-            $('#player_1').addClass('got_hit');
-            setTimeout(function () {
-                $('#player_1').removeClass('got_hit');
-            }, 2000);
-            $("#attackText1").text("-" + gameModel.players[0].attack).show();
-            setTimeout(function () {
-                $("#attackText1").hide();
-            }, 750)
-        }
+        view.showDamage(playerModel, damageAmount);
         view.updateBars();
         view.updateBarCounter();
     };
