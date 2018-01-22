@@ -232,7 +232,7 @@ body {
     font-size: 40px;
     color: aliceblue;
     position: absolute;
-    top: 87%;
+    top: 75%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -516,7 +516,7 @@ body {
     font-size: 40px;
     color: aliceblue;
     position: absolute;
-    top: 94%;
+    top: 80%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -567,7 +567,7 @@ body {
 .tablet_arrows>img {
     width: 100%;
 }
-.tablet_arrows#w>img, .tablet_arrows#ArrowUp>img{
+/* .tablet_arrows#w>img, .tablet_arrows#ArrowUp>img{
     position: relative;
     top:10px;
     left:3px;
@@ -586,7 +586,7 @@ body {
     position: relative;
     left:10px;
     bottom:3px;
-}
+} */
 
 .tablet_player_container {
     display: -webkit-box;
