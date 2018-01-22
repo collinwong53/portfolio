@@ -76,8 +76,11 @@ function View() {
     this.arrowBoxMadeMove = function (playerModel) {
         var divID = "#player_" + playerModel.index + "_key_display";
         $(divID).css("border", "5px solid green").css("box-sizing", "border-box");
+        var divTabletID = ".player_" + playerModel.index + "_arrows";
+        $(divTabletID).addClass('tablet_right_move');
         setTimeout(function () {
             $(divID).css("border", "none");
+            $(divTabletID).removeClass('tablet_right_move')
         }, 150)
     };
 
@@ -90,8 +93,11 @@ function View() {
     this.arrowBoxMissMove = function (playerModel) {
         var divID = "#player_" + playerModel.index + "_key_display";
         $(divID).css("border", "5px solid red").css("box-sizing", "border-box");
+        var divTabletID = ".player_" + playerModel.index + "_arrows";
+        $(divTabletID).addClass('tablet_wrong_move');
         setTimeout(function () {
             $(divID).css("border", "none");
+            $(divTabletID).removeClass('tablet_wrong_move')
         }, 150)
     };
 
@@ -227,7 +233,7 @@ function View() {
         $('.bottom_container').attr('id', 'tablet_bottom_container');
         $('#tablet_icon').removeClass('hidden');
         $('#keyboard_icon').addClass('hidden');
-        this.desktop = false;
+        self.desktop = false;
     };
 
     /***************************************************************************************************
@@ -247,6 +253,7 @@ function View() {
         $('.bottom_container').removeAttr('id');
         $('#tablet_icon').addClass('hidden');
         $('#keyboard_icon').removeClass('hidden');
+        self.desktop = true;
     };
 
     /***************************************************************************************************
@@ -265,12 +272,13 @@ function View() {
             $("#start_button").hide();
         });
         $('#touch_switch').click(this.tabletSwitch);
+        $('#keyboard_switch').click(this.desktopSwitch);
         $('.close_modal_butt').click(this.closeYoutube);
         $('#winner_modal').on('hidden.bs.modal', this.closeYoutube);
         $('.tablet_arrows').click(gameController.tabletArrows);
         $('#tablet_icon, #keyboard_icon').click(this.toggleView);
         $('#info').click(this.showInstructions);
-        $('#keyboard_switch').click(this.desktopSwitch);
+
     };
 
     /***************************************************************************************************
@@ -301,13 +309,44 @@ function View() {
             self.tabletSwitch();
         }else{
             self.desktopSwitch();
-            self.desktop = true;
         }
-    }
+    };
     this.showInstructions = function(){
         $("#instructions").modal('show');
     }
+    this.showDamage = function(playerModel, damageAmount){
+        if(view.desktop){
+            $('.attackText').css("bottom", "39%");
+            $('.attackText#attackText0').css("left", "27%");
+            $('.attackText#attackText1').css("left", "58%");
+        }
+        else{
+            $('.attackText').css("bottom", "25%");
+            $('.attackText#attackText0').css("left", "25%");
+            $('.attackText#attackText1').css("left", "60%");
+        }
+        if (playerModel.index === 0) {
+            $('#player_0').addClass('got_hit');
+            setTimeout(function () {
+                $('#player_0').removeClass('got_hit');
+            }, 2000);
+            $("#attackText0").text("-" + gameModel.players[1].attack).show();
+            setTimeout(function () {
+                $("#attackText0").hide();
+            }, 750)
+        } else {
+            $('#player_1').addClass('got_hit');
+            setTimeout(function () {
+                $('#player_1').removeClass('got_hit');
+            }, 2000);
+            $("#attackText1").text("-" + gameModel.players[0].attack).show();
+            setTimeout(function () {
+                $("#attackText1").hide();
+            }, 750)
+        }
+    };
 }
+
 
 /***************************************************************************************************
  * displayWinVideo - shows a video of the winning pokemon
@@ -388,3 +427,4 @@ function failedVideo(message) {
     $("#video_display").text(message);
     $("#winner_modal").modal('show');
 }
+

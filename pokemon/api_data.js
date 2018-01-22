@@ -1,4 +1,4 @@
-function GrabData() {
+function APIData() {
     var self = this;
     /***************************************************************************************************
      * grab card api - gets the information from the card api

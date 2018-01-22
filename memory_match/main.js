@@ -14,9 +14,6 @@ function initialize() {
         'images/zergling.jpg',
         'images/ultralisk.jpg',
     ];
-    for(var image in image_array){
-        let load = image_array.image;
-    }
     var sound_object = {
         'images/zeratul.jpg': new Audio("sounds/zeratul_goodjob.mp3"),
         'images/banelings.jpg': new Audio("sounds/baneling_roll.mp3"),
@@ -34,9 +31,17 @@ function initialize() {
     view = new View();
     carBot = new Memory_match(image_array, sound_object);
     view.start_app();
-    setTimeout(function(){
-        carBot.start_app();
-    },1000)
+    var images = [];
+    function preload(image_array) {
+        for (i = 0; i < image_array.length; i++) {
+            images[i] = new Image()
+            images[i].src = image_array[i];
+        }
+        setTimeout(function(){
+            carBot.start_app();
+        },1000);
+    }
+    preload(image_array);
     $(window).on('resize', view.change_card_height);
     $(window).on('load', view.change_card_height);
 }
@@ -129,6 +134,8 @@ function Memory_match(images, sounds) {
             card.addClass('flipped');
             self.second_card_clicked = card;
             if (self.second_card_clicked.find('img').attr('src') === self.first_card_clicked.find('img').attr('src')) {
+                self.first_card_clicked.find('.back').css('display','none');
+                self.second_card_clicked.find('.back').css('display','none');
                 var image = self.second_card_clicked.find('img').attr('src');
                 if (!self.is_muted) {
                     self.sounds[image].play();
