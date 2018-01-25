@@ -232,7 +232,7 @@ body {
     font-size: 40px;
     color: aliceblue;
     position: absolute;
-    top: 75%;
+    top: 70%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -516,7 +516,7 @@ body {
     font-size: 40px;
     color: aliceblue;
     position: absolute;
-    top: 80%;
+    top: 75%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
