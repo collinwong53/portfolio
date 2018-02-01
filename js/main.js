@@ -1,11 +1,11 @@
-$(document).ready(start_app);
+// $(document).ready(start_app);
 
-function start_app(){
-    apply_click_handlers();
-    $(window).on('load', ()=>{
-        $('.loading').css('display','none');
-    })    
-}
+// function start_app(){
+//     apply_click_handlers();
+//     $(window).on('load', ()=>{
+//         $('.loading').css('display','none');
+//     }).bind(this);    
+// }
 function apply_click_handlers() {
     $('.project-item').click(function () {
         $(this).find('.overlay-mask').toggleClass('show_overlay');

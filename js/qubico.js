@@ -647,5 +647,8 @@ $(document).ready(function () {
 					});
 
 				});
-
+				$(window).on('load', ()=>{
+					$('.loading').css('display','none');
+				}).bind(this);  
+				apply_click_handlers();
 			});
