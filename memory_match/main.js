@@ -39,11 +39,11 @@ function initialize() {
     view.preload_images(image_array);
     
     $(window).on('resize', view.change_card_height);
-    $(window).on('load', function(){
+    $(window).on('load', 
         setTimeout(function () {
             controller.start_app();
-        }.bind(this), 1000);
-    });
+        }.bind(this), 1000)
+    );
 }
 
 //view object 
