@@ -37,11 +37,12 @@ function initialize() {
     controller = new Controller();
     //preload images
     view.preload_images(image_array);
-    // setTimeout(function () {
-    //     controller.start_app();
-    // }.bind(this), 1000);
     $(window).on('resize', view.change_card_height);
-    $(window).on('load', controller.start_app());
+    $(window).on('load', 
+        setTimeout(function () {
+            controller.start_app();
+        }.bind(this), 1000)
+    );
 }
 
 //view object 
