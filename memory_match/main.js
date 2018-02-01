@@ -37,12 +37,11 @@ function initialize() {
     controller = new Controller();
     //preload images
     view.preload_images(image_array);
-    
     $(window).on('resize', view.change_card_height);
     $(window).on('load', 
-        setTimeout(function () {
+        setTimeout( () => {
             controller.start_app();
-        }.bind(this), 1000)
+        }, 1000)
     );
 }
 
@@ -123,6 +122,7 @@ function View() {
             $('<div>').addClass('front').prepend('<img src=' + "'" + image + "'" + '/>').appendTo('#card' + i);
             $('<div>').addClass('back').prepend('<img src="images/card_pack.png"/>').appendTo('#card' + i);
         } //end for loop
+        view.change_card_height
     } //end create board
 
     this.display_stats = () => {
