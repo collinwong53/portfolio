@@ -537,7 +537,7 @@ body {
     }
 }
 
-@media screen and (min-width:662px) and (orientation:landscape) {
+@media screen and (min-width:663px) and (orientation:landscape) {
     #header_container {
         font-size: 2em;
     }
